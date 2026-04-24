@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Maestros de la escritura — Fichas pedagógicas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --cream:#f5f0e8; --ink:#1a1710; --sienna:#9b3a1e; --rust:#c25c2e;
+  --gold:#b8913a; --sage:#5c7a5e; --fog:#e0d8cc; --muted:#6b6358;
+  --border:#c9bfaf; --white:#fff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'EB Garamond',Georgia,serif;font-size:18px;line-height:1.75;}
+
+/* ── SECTION VISIBILITY ── */
+.page-section{display:none;}
+.page-section.active{display:block;}
+
+/* ── NAV BAR ── */
+.topnav{position:sticky;top:0;z-index:100;background:var(--ink);padding:0;display:flex;align-items:stretch;justify-content:space-between;border-bottom:2px solid var(--sienna);}
+.topnav-brand{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding:14px 20px;white-space:nowrap;cursor:pointer;display:flex;align-items:center;}
+.topnav-brand:hover{color:var(--cream);}
+.topnav-authors{display:flex;flex-wrap:wrap;gap:0;}
+.nav-btn{background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--fog);padding:14px 16px;transition:all .2s;border-left:1px solid #333;}
+.nav-btn:hover{color:var(--gold);background:#ffffff10;}
+.nav-btn.active-nav{color:var(--cream);background:var(--sienna);}
+
+/* ── MENU PAGE ── */
+.menu-page{max-width:960px;margin:0 auto;padding:60px 40px 80px;}
+.menu-masthead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:52px;}
+.menu-masthead span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.menu-title-block{margin-bottom:52px;}
+.menu-overtitle{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sienna);margin-bottom:12px;}
+.menu-title{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,88px);font-weight:700;line-height:1;color:var(--ink);margin-bottom:8px;}
+.menu-author{font-family:'Playfair Display',serif;font-style:italic;font-size:26px;color:var(--muted);margin-bottom:32px;}
+.sinopsis-block{background:var(--fog);padding:36px 44px;margin-bottom:60px;border-left:5px solid var(--sienna);}
+.sinopsis-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--sienna);margin-bottom:16px;}
+.sinopsis-text p{margin-bottom:14px;font-size:18px;line-height:1.75;color:var(--ink);}
+.sinopsis-text p:last-child{margin-bottom:0;}
+.menu-grid-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:32px;}
+.menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+@media(max-width:700px){.menu-grid{grid-template-columns:1fr 1fr;}.topnav-authors{display:none;}}
+.menu-card{background:var(--ink);padding:28px 22px 24px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;}
+.menu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--sienna);transform:scaleX(0);transform-origin:left;transition:transform .25s;}
+.menu-card:hover{background:#2e2920;}
+.menu-card:hover::before{transform:scaleX(1);}
+.menu-card-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:10px;}
+.menu-card-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--cream);line-height:1.15;margin-bottom:8px;}
+.menu-card-role{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.menu-card-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;border:1px solid var(--sienna);color:var(--sienna);padding:2px 8px;margin-bottom:4px;margin-right:4px;}
+.menu-footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.menu-footer span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+
+/* ── AUTHOR FICHA ── */
+.ficha{max-width:900px;margin:0 auto;padding:48px 40px 80px;}
+@media(max-width:600px){.ficha{padding:32px 20px 60px;}}
+.masthead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:48px;}
+.masthead-series{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.masthead-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--sienna);letter-spacing:.1em;}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;margin-bottom:40px;}
+@media(max-width:600px){.hero{grid-template-columns:1fr;}.hero-ornament{display:none;}}
+.hero-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,68px);font-weight:700;line-height:1;color:var(--ink);margin-bottom:4px;}
+.hero-subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--sienna);margin-bottom:16px;}
+.hero-meta{display:flex;gap:24px;flex-wrap:wrap;}
+.meta-chip{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);}
+.meta-chip span{color:var(--ink);font-weight:500;}
+.hero-ornament{width:80px;opacity:.15;align-self:center;}
+
+/* QUOTE */
+.quote-block{background:var(--ink);color:var(--cream);padding:36px 44px;margin:44px 0;position:relative;}
+.quote-block::before{content:'\201C';font-family:'Playfair Display',serif;font-size:120px;color:var(--sienna);position:absolute;top:-18px;left:28px;line-height:1;opacity:.6;}
+.quote-block blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;line-height:1.55;padding-top:20px;position:relative;z-index:1;}
+.quote-block cite{display:block;margin-top:16px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-style:normal;}
+
+/* SECTIONS */
+.section{margin-top:52px;}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.section-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--sienna);border:1px solid var(--rust);padding:3px 10px;white-space:nowrap;}
+.section-rule{flex:1;height:1px;background:var(--border);}
+h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--ink);margin-bottom:16px;line-height:1.2;}
+p{margin-bottom:16px;color:var(--ink);}
+p:last-child{margin-bottom:0;}
+
+/* BIO GRID */
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+@media(max-width:620px){.bio-grid{grid-template-columns:1fr;}}
+.obras-list{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.obras-list li{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;border:1px solid var(--border);padding:5px 14px;color:var(--ink);}
+.info-card-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+
+/* TALLER CARDS */
+.info-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
+@media(max-width:620px){.info-cards{grid-template-columns:1fr 1fr;}}
+.info-card{background:var(--fog);border-top:3px solid var(--sienna);padding:16px 18px;}
+.info-card .info-card-label{margin-bottom:6px;}
+.info-card-value{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);line-height:1.3;}
+.alumno-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:12px;border:1px solid var(--sage);color:var(--sage);padding:4px 12px;margin:4px 4px 4px 0;}
+
+/* EJERCICIOS */
+.ejercicio{border-left:4px solid var(--rust);padding:24px 28px;margin-bottom:28px;background:var(--white);}
+.ejercicio-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);margin-bottom:8px;}
+.ejercicio-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.ejercicio p{font-size:17px;line-height:1.7;color:#3a3630;}
+.ejercicio ol,.ejercicio ul{margin:12px 0 12px 22px;color:#3a3630;font-size:17px;}
+.ejercicio li{margin-bottom:6px;}
+.ejercicio-nota{margin-top:14px;font-style:italic;color:var(--muted);font-size:15px;border-top:1px solid var(--border);padding-top:12px;}
+
+/* MAXIMAS */
+.maxima{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--border);align-items:baseline;}
+.maxima:last-child{border-bottom:none;}
+.maxima-n{font-family:'DM Mono',monospace;font-size:12px;color:var(--sienna);flex-shrink:0;width:28px;}
+.maxima-text{font-family:'EB Garamond',serif;font-size:17px;line-height:1.6;color:var(--ink);}
+
+/* REFS */
+.ref-item{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);align-items:start;}
+.ref-item:last-child{border-bottom:none;}
+.ref-bullet{width:8px;height:8px;background:var(--sienna);margin-top:9px;flex-shrink:0;}
+.ref-title{font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);}
+.ref-author{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--muted);margin-top:2px;}
+.ref-note{font-family:'EB Garamond',serif;font-size:15px;color:var(--muted);margin-top:4px;font-style:italic;}
+
+/* FOOTER */
+.footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-credit{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+em.hl{font-style:normal;color:var(--sienna);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="topnav-brand" onclick="showSection('menu')">Maestros de la escritura</div>
+  <div class="topnav-authors">
+    <button class="nav-btn" onclick="showSection('castillo')">Castillo</button>
+    <button class="nav-btn" onclick="showSection('heker')">Heker</button>
+    <button class="nav-btn" onclick="showSection('uhart')">Uhart</button>
+    <button class="nav-btn" onclick="showSection('gilio')">Gilio</button>
+    <button class="nav-btn" onclick="showSection('levrero')">Levrero</button>
+    <button class="nav-btn" onclick="showSection('laiseca')">Laiseca</button>
+    <button class="nav-btn" onclick="showSection('steimberg')">Steimberg</button>
+    <button class="nav-btn" onclick="showSection('guerriero')">Guerriero</button>
+  </div>
+</nav>
+
+<!-- ══════════════ MENÚ ══════════════ -->
+<div id="menu" class="page-section active">
+<div class="menu-page">
+  <div class="menu-masthead">
+    <span>Fichas pedagógicas · 8 autores</span>
+    <span>Basadas en el libro de Liliana Villanueva · Ediciones Godot, 2018</span>
+  </div>
+  <div class="menu-title-block">
+    <p class="menu-overtitle">Colección de fichas de autor</p>
+    <h1 class="menu-title">Maestros de<br>la escritura</h1>
+    <p class="menu-author">Liliana Villanueva</p>
+  </div>
+
+  <div class="sinopsis-block">
+    <p class="sinopsis-title">Sinopsis del libro</p>
+    <div class="sinopsis-text">
+      <p><em>Maestros de la escritura</em> (Ediciones Godot, 2018) es un ensayo-reportaje de la escritora y periodista argentina Liliana Villanueva construido a lo largo de tres años, más de treinta entrevistas, y la participación directa de la autora en talleres literarios de Buenos Aires y Montevideo. El libro nació de una pregunta sencilla pero vasta: ¿cómo aprendieron a enseñar a escribir los escritores que hicieron escuela en el Río de la Plata?</p>
+      <p>La respuesta conduce a ocho maestros y maestras que, desde fines de los años sesenta hasta la primera década del siglo XXI, transformaron sus conocimientos literarios en espacios colectivos de aprendizaje. Abelardo Castillo, Liliana Heker, Hebe Uhart, María Esther Gilio, Mario Levrero, Alberto Laiseca, Alicia Steimberg y Leila Guerriero son los protagonistas de este recorrido por la tradición oral de la escritura rioplatense.</p>
+      <p>El libro traza el origen histórico de los talleres: cómo las reuniones literarias en los cafés porteños de los sesenta fueron expulsadas al ámbito privado por los decretos del Estado de Sitio durante la última dictadura argentina, convirtiéndose en lo que Liliana Heker llama "pequeños reductos de resistencia". En uno de esos talleres clandestinos se leyó, en 1977, el primer cuento sobre desaparecidos. Esa es la historia de fondo que late bajo cada capítulo.</p>
+      <p>Villanueva no escribe un manual ni una historia académica. Escribe desde adentro: entrevista a los maestros en sus casas, asiste a sus talleres, habla con sus alumnos y reconstruye escenas. El resultado es un retrato vivo de ocho pedagogías distintas que, sin embargo, comparten un núcleo común: la convicción de que nadie puede enseñar a escribir, pero que un buen maestro puede acelerar el proceso, señalar el camino y —sobre todo— saber cuándo soltar.</p>
+    </div>
+  </div>
+
+  <h2 class="menu-grid-title">Los ocho maestros</h2>
+  <div class="menu-grid">
+    <div class="menu-card" onclick="showSection('castillo')">
+      <div class="menu-card-num">01 / 08</div>
+      <div class="menu-card-name">Abelardo Castillo</div>
+      <div class="menu-card-role">Argentina, 1935–2017</div>
+      <span class="menu-card-tag">Cuento</span><span class="menu-card-tag">Novela</span>
+    </div>
+    <div class="menu-card" onclick="showSection('heker')">
+      <div class="menu-card-num">02 / 08</div>
+      <div class="menu-card-name">Liliana Heker</div>
+      <div class="menu-card-role">Argentina, 1943</div>
+      <span class="menu-card-tag">Cuento</span><span class="menu-card-tag">Novela</span>
+    </div>
+    <div class="menu-card" onclick="showSection('uhart')">
+      <div class="menu-card-num">03 / 08</div>
+      <div class="menu-card-name">Hebe Uhart</div>
+      <div class="menu-card-role">Argentina, 1936–2018</div>
+      <span class="menu-card-tag">Crónica</span><span class="menu-card-tag">Viajes</span>
+    </div>
+    <div class="menu-card" onclick="showSection('gilio')">
+      <div class="menu-card-num">04 / 08</div>
+      <div class="menu-card-name">María Esther Gilio</div>
+      <div class="menu-card-role">Uruguay, 1928–2011</div>
+      <span class="menu-card-tag">Entrevista</span><span class="menu-card-tag">Periodismo</span>
+    </div>
+    <div class="menu-card" onclick="showSection('levrero')">
+      <div class="menu-card-num">05 / 08</div>
+      <div class="menu-card-name">Mario Levrero</div>
+      <div class="menu-card-role">Uruguay, 1940–2004</div>
+      <span class="menu-card-tag">Narrativa</span><span class="menu-card-tag">Imagen</span>
+    </div>
+    <div class="menu-card" onclick="showSection('laiseca')">
+      <div class="menu-card-num">06 / 08</div>
+      <div class="menu-card-name">Alberto Laiseca</div>
+      <div class="menu-card-role">Argentina, 1941–2016</div>
+      <span class="menu-card-tag">Imaginación</span><span class="menu-card-tag">Delirio</span>
+    </div>
+    <div class="menu-card" onclick="showSection('steimberg')">
+      <div class="menu-card-num">07 / 08</div>
+      <div class="menu-card-name">Alicia Steimberg</div>
+      <div class="menu-card-role">Argentina, 1933–2012</div>
+      <span class="menu-card-tag">Visibilidad</span><span class="menu-card-tag">Estilo</span>
+    </div>
+    <div class="menu-card" onclick="showSection('guerriero')">
+      <div class="menu-card-num">08 / 08</div>
+      <div class="menu-card-name">Leila Guerriero</div>
+      <div class="menu-card-role">Argentina, 1967</div>
+      <span class="menu-card-tag">Crónica</span><span class="menu-card-tag">Periodismo narrativo</span>
+    </div>
+  </div>
+  <div class="menu-footer">
+    <span>Maestros de la escritura · Liliana Villanueva · Ediciones Godot, 2018</span>
+    <span>Fichas pedagógicas · uso en aula</span>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════ CASTILLO ══════════════ -->
+<div id="castillo" class="page-section">
+<div class="ficha">
+  <div class="masthead"><span class="masthead-series">Maestros de la escritura · Liliana Villanueva</span><span class="masthead-num">Ficha 01 / 08</span></div>
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Maestro de escritura</p>
+      <h1>Abelardo<br>Castillo</h1>
+      <p class="hero-subtitle">Antes de tener estilo hay que aprender a escribir</p>
+      <div class="hero-meta">
+        <span class="meta-chip">Nac. <span>1935, San Pedro, Argentina</span></span>
+        <span class="meta-chip">† <span>2017, Buenos Aires</span></span>
+      </div>
+    </div>
+    <svg class="hero-ornament" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="60" rx="38" ry="56" stroke="#1a1710" stroke-width="1.5"/><line x1="40" y1="4" x2="40" y2="116" stroke="#1a1710" stroke-width="1"/><line x1="2" y1="60" x2="78" y2="60" stroke="#1a1710" stroke-width="1"/><ellipse cx="40" cy="60" rx="20" ry="30" stroke="#1a1710" stroke-width="1" stroke-dasharray="3 3"/></svg>
+  </div>
+  <div class="quote-block">
+    <blockquote>Se aprende a escribir. Todo escritor aprende a escribir. Se aprende de los que están alrededor, de los propios errores, y sobre todo de los libros que se leen. Yo enseño a aprender.</blockquote>
+    <cite>— Abelardo Castillo</cite>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El autor</span><div class="section-rule"></div></div>
+    <h2>Vida y obra</h2>
+    <div class="bio-grid">
+      <div><p>Abelardo Castillo es uno de los cuentistas más importantes de la literatura argentina del siglo XX. Nació en San Pedro, provincia de Buenos Aires, y publicó su primer libro de cuentos, <em>Las otras puertas</em>, en 1961. Fundó y dirigió las revistas literarias <em>El grillo de papel</em> (1959) y <em>El escarabajo de oro</em> (1961–1974), espacios de debate literario que reunieron a una generación de escritores fundamentales.</p>
+      <p>Castillo fue el impulsor de los talleres literarios en Argentina: en 1969 organizó el primero de los que luego se convertirían en un fenómeno cultural nacional. Dio talleres durante 47 años, hasta poco antes de su muerte en 2017.</p></div>
+      <div><p>Como escritor cultivó el cuento, la novela y el teatro, con una prosa marcada por la precisión del lenguaje, la reflexión ética y una vocación por los grandes temas de la existencia. Su libro <em>Ser escritor</em> (1997) recoge sus reflexiones sobre la escritura y la enseñanza literaria.</p>
+      <p>Vivía con su esposa, la también escritora Sylvia Iparraguirre, en un departamento neoclásico en el barrio de Boedo donde recibía a sus alumnos alrededor de una mesa de madera maciza, con un tablero de ajedrez al centro.</p></div>
+    </div>
+    <div style="margin-top:24px;"><p class="info-card-label">Obras principales</p>
+    <ul class="obras-list"><li>Las otras puertas (1961)</li><li>Israfel (1964)</li><li>El cruce del Aqueronte (1982)</li><li>Crónica de un iniciado (1987)</li><li>El oficio de mentir (1998)</li><li>Ser escritor (1997)</li><li>Cuentos completos (1997)</li></ul></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Método</span><div class="section-rule"></div></div>
+    <h2>La corrección como ética</h2>
+    <p>Para Castillo, el taller no hace al escritor, pero lo ayuda a "aprender a leer". Su primera exigencia era la <em class="hl">lectura profunda y amplia</em>: los aspirantes debían presentar listas de libros leídos y tener leído, mínimo, a Dostoiévski. "El que no ha leído <em>Los hermanos Karamázov</em> no entra a mi taller", decía.</p>
+    <p>La corrección era para él un acto casi metafísico, más ético que estético —siguiendo a Paul Valéry—: "Es un acto de acercarse a un modelo ideal al que nunca se llegará". Se publica "solo por cansancio". Los textos se trabajaban en tres niveles: el lenguaje (sonoridad, cacofonías, tiempos verbales), la estructura (personajes, verosimilitud) y el sentido profundo (la corriente subterránea de significado).</p>
+    <p>La dinámica del taller comenzaba con la lectura en voz alta de los textos —pero advertía que esa lectura no debía sustituir la fuerza de la palabra escrita— seguida de la crítica colectiva y, al final, su propia intervención. Sus talleres eran también charlas de literatura que se extendían hasta las tres de la madrugada en bares y restaurantes del barrio.</p>
+    <p>Castillo creía en la "familia literaria": cada escritor debe construir la suya propia —los autores que siente esenciales para él— y explorar luego a los autores que esos autores amaban. "Esa familia espiritual es, sin duda, la única con la que puede dialogar un escritor".</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El taller</span><div class="section-rule"></div></div>
+    <h2>Contexto y dinámica</h2>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-label">Período activo</div><div class="info-card-value">1969 – 2017<br><small style="font-size:13px;color:var(--muted);">Buenos Aires</small></div></div>
+      <div class="info-card"><div class="info-card-label">Géneros</div><div class="info-card-value">Cuento y novela</div></div>
+      <div class="info-card"><div class="info-card-label">Frecuencia</div><div class="info-card-value">Semanal (jueves)</div></div>
+      <div class="info-card"><div class="info-card-label">Horario</div><div class="info-card-value">21:00 hs — hasta las 3 am</div></div>
+      <div class="info-card"><div class="info-card-label">Criterio ingreso</div><div class="info-card-value">Entrevista previa + listas de libros leídos</div></div>
+      <div class="info-card"><div class="info-card-label">Perfil del alumno</div><div class="info-card-value">Jóvenes muy leídos con vocación literaria</div></div>
+    </div>
+    <p>El proceso de selección de alumnos era riguroso: Castillo pedía tres listas escritas y comentadas con el primer libro que impactó al aspirante, las lecturas de pre-adolescencia, y los libros que consideraba clásicos. Luego una entrevista telefónica que podía durar horas —y que ya era, en sí misma, la primera clase.</p>
+    <p style="margin-top:16px;"><span class="info-card-label" style="display:block;margin-bottom:8px;">Alumnos notables</span>
+    <span class="alumno-tag">Liliana Heker</span><span class="alumno-tag">Sylvia Iparraguirre</span><span class="alumno-tag">Clara Anich</span><span class="alumno-tag">Verónica Yattah</span></p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Ejercicios del taller</span><div class="section-rule"></div></div>
+    <h2>Consignas y prácticas</h2>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 01</div>
+      <div class="ejercicio-title">Las tres listas de lecturas</div>
+      <p>Antes de ingresar al taller, cada aspirante debía preparar y comentar por escrito tres listas personales:</p>
+      <ol><li><strong>El primer libro que leí</strong> y que me impactó de alguna manera. No importaba si se trataba de cómics de Mickey Mouse, <em>Mujercitas</em> o <em>Guerra y paz</em>. Se debía explicar el porqué del impacto.</li>
+      <li><strong>Los libros de la pre-adolescencia</strong>, el período donde empieza la formación y la lectura consciente.</li>
+      <li><strong>Los libros que considero clásicos</strong> o importantes, ya leídos o por leer.</li></ol>
+      <div class="ejercicio-nota">Este ejercicio no era solo un filtro de selección: era también el inicio de la reflexión sobre la propia "familia literaria". Castillo interrogaba cada elección: ¿Por qué ese libro? ¿Qué encontraste ahí que no encontraste en otro?</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 02</div>
+      <div class="ejercicio-title">Los tres niveles de corrección</div>
+      <p>Castillo enseñaba a corregir en tres niveles de análisis que sus alumnos debían internalizar para aplicarlos a los textos propios y ajenos:</p>
+      <ol><li><strong>Nivel del lenguaje:</strong> el nivel más inmediato, perceptible por sonoridad. Atención a cacofonías, rimas internas involuntarias, tiempos verbales, adjetivación innecesaria, expresiones foráneas al texto.</li>
+      <li><strong>Nivel de la estructura:</strong> personajes, verosimilitud interna del texto, coherencia del punto de vista, consistencia de la voz narradora.</li>
+      <li><strong>Nivel del sentido:</strong> el más profundo. La corriente subterránea del texto: aquello que no está escrito pero que da su sentido definitivo a todo lo demás.</li></ol>
+      <div class="ejercicio-nota">Según su alumna Clara Anich: "Más que enseñar a escribir, en el taller lo que se hacía era enseñar a corregir. Aprendí a trabajar mis textos, esa parte de oficio que tiene la literatura".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 03</div>
+      <div class="ejercicio-title">La lectura en voz alta como prueba</div>
+      <p>Todos los textos se leían en voz alta antes de la crítica colectiva. Pero Castillo advertía sobre el peligro de esta práctica: la lectura oral puede mejorar un texto que en la página no funciona solo.</p>
+      <p>El ejercicio consistía en detectar si un texto dependía de la voz del lector o si era capaz de generar su propia énfasis en silencio. La pregunta fundamental era: ¿Este texto necesita un actor para existir, o se sostiene solo como escritura? Un buen cuento, leído en silencio, debe ser tan expresivo como cuando el autor lo interpreta en voz alta.</p>
+      <div class="ejercicio-nota">Este ejercicio enseñaba a distinguir entre contar con elocuencia y ser cuentista. Un texto que se apoya demasiado en lo oral se transforma en teatro.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Máximas</span><div class="section-rule"></div></div>
+    <h2>16 máximas de Abelardo Castillo</h2>
+    <div class="maxima"><div class="maxima-n">01</div><div class="maxima-text">Antes de tener estilo hay que aprender a escribir.</div></div>
+    <div class="maxima"><div class="maxima-n">02</div><div class="maxima-text">Yo enseño a aprender. No me voy a poner a explicarle al alumno dónde va una coma o sugerirle yo una historia. Se aprende solo.</div></div>
+    <div class="maxima"><div class="maxima-n">03</div><div class="maxima-text">Si a usted lo que le importa es publicar, se equivocó de lugar. Si lo que le importa es buscar aprobación, también.</div></div>
+    <div class="maxima"><div class="maxima-n">04</div><div class="maxima-text">La pasión pura no sirve para escribir. Hay que elegir, combinar, desechar. A la pasión hay que dejarla morir y después reinventarla.</div></div>
+    <div class="maxima"><div class="maxima-n">05</div><div class="maxima-text">Nunca siento que lo hecho está terminado. Uno publica solo por cansancio.</div></div>
+    <div class="maxima"><div class="maxima-n">06</div><div class="maxima-text">La realidad no se escribe. Se hace ficción sobre lo que queda o lo que faltó de todo eso. Se escribe sobre los deseos, sobre las culpas, sobre los sueños.</div></div>
+    <div class="maxima"><div class="maxima-n">07</div><div class="maxima-text">Los errores esenciales te persiguen hasta la muerte. Hay ciertos errores que no se superan nunca; uno lucha todo el tiempo contra sus propias limitaciones.</div></div>
+    <div class="maxima"><div class="maxima-n">08</div><div class="maxima-text">Cada uno construye su propia familia literaria. Esa es la única familia con la que puede dialogar un escritor.</div></div>
+    <div class="maxima"><div class="maxima-n">09</div><div class="maxima-text">El secreto en literatura no está en las ideas sino en el cómo contarlas. Todo el mundo tiene algo que contar.</div></div>
+    <div class="maxima"><div class="maxima-n">10</div><div class="maxima-text">Un buen escritor es alguien que toma muy en serio la literatura, pero no se toma en serio a sí mismo.</div></div>
+    <div class="maxima"><div class="maxima-n">11</div><div class="maxima-text">Si usted tiene tendencia a escribir "rostro" en vez de "cara", "ascender" en vez de "subir", dése una vuelta por el mundo real.</div></div>
+    <div class="maxima"><div class="maxima-n">12</div><div class="maxima-text">El taller literario tomado como método de enseñanza es muy dudoso, porque no nació como fenómeno pedagógico sino como fenómeno histórico.</div></div>
+    <div class="maxima"><div class="maxima-n">13</div><div class="maxima-text">En la juventud uno pretende decir todo y apelotona todas sus ideas en un texto. Eso es confusión, no capacidad para generar ideas.</div></div>
+    <div class="maxima"><div class="maxima-n">14</div><div class="maxima-text">La literatura está cargada de fatalidad y tristeza porque es un conjuro contra la infelicidad. Se escribe justamente porque la felicidad no existe.</div></div>
+    <div class="maxima"><div class="maxima-n">15</div><div class="maxima-text">Los géneros literarios son una ilusión. Solo podemos acatar su forma, aceptar sus leyes y tratar de no equivocarnos demasiado.</div></div>
+    <div class="maxima"><div class="maxima-n">16</div><div class="maxima-text">De mis talleres sale un escritor solo si ya era un escritor cuando llegó. Busco personas para las que la literatura es esencial, no adjetiva.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Referencias literarias</span><div class="section-rule"></div></div>
+    <h2>Obras mencionadas</h2>
+    <div class="ref-item"><div class="ref-bullet"></div><div><div class="ref-title">Los hermanos Karamázov</div><div class="ref-author">Fiódor Dostoiévski</div><div class="ref-note">Lectura obligatoria para ingresar al taller. Para Castillo, quien no ha podido leerlos carece aún del "espacio espiritual" necesario para escribir.</div></div></div>
+    <div class="ref-item"><div class="ref-bullet"></div><div><div class="ref-title">Ser escritor</div><div class="ref-author">Abelardo Castillo — Buenos Aires: Seix Barral, 1997</div><div class="ref-note">Reúne sus reflexiones sobre la escritura, el taller y la corrección, incluyendo el artículo "Literatura y taller literario" citado en el capítulo.</div></div></div>
+    <div class="ref-item"><div class="ref-bullet"></div><div><div class="ref-title">Filosofía de la composición</div><div class="ref-author">Edgar Allan Poe — 1846</div><div class="ref-note">Castillo lo recitaba de memoria en las entrevistas y lo consideraba texto fundamental. Heker refiere que Poe era central en las discusiones del grupo.</div></div></div>
+    <div class="ref-item"><div class="ref-bullet"></div><div><div class="ref-title">Carta a un joven poeta</div><div class="ref-author">Rainer Maria Rilke</div><div class="ref-note">Castillo citaba el consejo de Rilke: "En la hora más serena de tu noche, pregúntate: ¿debo escribir? Si la respuesta es sí, que nada te lo impida".</div></div></div>
+    <div class="ref-item"><div class="ref-bullet"></div><div><div class="ref-title">El cuarteto de Alejandría</div><div class="ref-author">Lawrence Durrell</div><div class="ref-note">Castillo preguntaba: "¿Cómo alguien es capaz de morirse sin haber leído los cuatro tomos de Lawrence Durrell?"</div></div></div>
+  </div>
+  <div class="footer"><span class="footer-credit">Basado en: Maestros de la escritura · Liliana Villanueva · Ediciones Godot, 2018</span><span class="footer-credit">Ficha 01 · Abelardo Castillo</span></div>
+</div>
+</div>
+
+<!-- ══════════════ HEKER ══════════════ -->
+<div id="heker" class="page-section">
+<div class="ficha">
+  <div class="masthead"><span class="masthead-series">Maestros de la escritura · Liliana Villanueva</span><span class="masthead-num">Ficha 02 / 08</span></div>
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Maestra de escritura</p>
+      <h1>Liliana<br>Heker</h1>
+      <p class="hero-subtitle">Un pequeño ámbito de libertad</p>
+      <div class="hero-meta">
+        <span class="meta-chip">Nac. <span>1943, Buenos Aires</span></span>
+        <span class="meta-chip">Géneros <span>Cuento · Novela</span></span>
+      </div>
+    </div>
+    <svg class="hero-ornament" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="60" rx="38" ry="56" stroke="#1a1710" stroke-width="1.5"/><line x1="40" y1="4" x2="40" y2="116" stroke="#1a1710" stroke-width="1"/><line x1="2" y1="60" x2="78" y2="60" stroke="#1a1710" stroke-width="1"/><ellipse cx="40" cy="60" rx="20" ry="30" stroke="#1a1710" stroke-width="1" stroke-dasharray="3 3"/></svg>
+  </div>
+  <div class="quote-block">
+    <blockquote>Nadie puede enseñar a otro a escribir. Un escritor que se forma aprende su oficio de las críticas que le hacen otros, de los libros que lee y de sus propias equivocaciones.</blockquote>
+    <cite>— Liliana Heker</cite>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">La autora</span><div class="section-rule"></div></div>
+    <h2>Vida y obra</h2>
+    <div class="bio-grid">
+      <div><p>Liliana Heker es una de las narradoras más importantes de Argentina. Comenzó a publicar en los años sesenta y fundó junto con Abelardo Castillo las revistas literarias <em>El grillo de papel</em> y <em>El escarabajo de oro</em>, que fueron el germen de lo que más tarde serían los talleres de escritura en el Río de la Plata. Durante la dictadura militar, participó en la fundación de <em>El ornitorrinco</em> (1977), manteniendo viva la crítica literaria en tiempos de censura.</p>
+      <p>Sus talleres llevan casi cincuenta años de actividad ininterrumpida —con dos períodos sabáticos— y por ellos han pasado escritores que hoy son referentes de la narrativa argentina.</p></div>
+      <div><p>Heker aporta al libro lo que Villanueva llama "la teoría Heker": fue la primera en articular cómo los grupos literarios de café de los sesenta fueron forzados al espacio privado por los decretos de la dictadura, convirtiéndose en talleres. En uno de esos primeros talleres clandestinos se leyó en 1977 el primer cuento sobre desaparecidos.</p>
+      <p>Vive y da taller en su departamento de San Telmo. Su método, en sus propias palabras, es "una mezcla de impiedad y generosidad".</p></div>
+    </div>
+    <div style="margin-top:24px;"><p class="info-card-label">Obras principales</p>
+    <ul class="obras-list"><li>Los que vieron la zarza (1966)</li><li>Un resplandor que se apagó en el mundo (1977)</li><li>Las peras del mal (1982)</li><li>El fin de la historia (1996)</li><li>La muerte de Dios (2016)</li><li>Cuentos reunidos (2016)</li></ul></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Método</span><div class="section-rule"></div></div>
+    <h2>Impiedad y generosidad</h2>
+    <p>Heker cree en los <em class="hl">talleres de creadores</em>: solo un escritor activo puede dar taller, porque al corregir un texto ajeno hay que meterse en el proceso creador del otro. La crítica que practica y exige en su taller es, a la vez, despiadada y generosa: "Para criticar bien, no debes tener demasiadas consideraciones. Y al mismo tiempo debes ser muy generoso para tomarte el trabajo de decir lo que pasa con ese texto. No guardarte nada".</p>
+    <p>La primera versión de un texto es para ella "un mal necesario, algo sobre lo cual hay que seguir trabajando". La corrección no es retocar sino buscar el Moisés dentro del bloque de mármol. Algunos de sus alumnos llegaron a escribir catorce versiones de un mismo cuento.</p>
+    <p>Su taller no acepta textos sin leer en voz alta, no hace fotocopias para preservar el proceso, y prohíbe explícitamente que se atribuya al autor del texto lo que narra el personaje en primera persona. "No sos vos, es el personaje. Eso lo saben perfectamente mis alumnos".</p>
+    <p>Fue Castillo su primer maestro —aprendió en las reuniones de café de los sesenta—, y ese modelo de discusión apasionada y sin concesiones es el que ella trasladó a su propio taller: "Sería una forma de reconstruir esos primeros encuentros de café. Ese es el taller en el que yo creo".</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El taller</span><div class="section-rule"></div></div>
+    <h2>Contexto y dinámica</h2>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-label">Período activo</div><div class="info-card-value">1978 – presente<br><small style="font-size:13px;color:var(--muted);">San Telmo, Buenos Aires</small></div></div>
+      <div class="info-card"><div class="info-card-label">Géneros</div><div class="info-card-value">Cuento y novela</div></div>
+      <div class="info-card"><div class="info-card-label">Frecuencia</div><div class="info-card-value">Lunes, martes y miércoles (tres grupos)</div></div>
+      <div class="info-card"><div class="info-card-label">Horario</div><div class="info-card-value">19:35 hs — puntual</div></div>
+      <div class="info-card"><div class="info-card-label">Criterio ingreso</div><div class="info-card-value">Entrevista previa. Busca la "compulsión de escribir"</div></div>
+      <div class="info-card"><div class="info-card-label">Dinámica</div><div class="info-card-value">Lectura oral → crítica colectiva → corrección final del coordinador</div></div>
+    </div>
+    <p>La dinámica del taller: los textos se leen en voz alta, cada participante opina, y Heker hace su devolución al final. No se llevan copias. Los alumnos no pueden referirse a lo que el personaje hace como si fuera el autor. La crítica es siempre al texto, nunca a la persona. Prohíbe comer galletitas: "Se trabaja todo el tiempo".</p>
+    <p style="margin-top:16px;"><span class="info-card-label" style="display:block;margin-bottom:8px;">Alumnos notables</span>
+    <span class="alumno-tag">Pablo Ramos</span><span class="alumno-tag">Inés Garland</span><span class="alumno-tag">Romina Doval</span><span class="alumno-tag">Mauricio Koch</span><span class="alumno-tag">Raúl Brasca</span><span class="alumno-tag">Guillermo Martínez</span></p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Ejercicios del taller</span><div class="section-rule"></div></div>
+    <h2>Prácticas de escritura</h2>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 01</div>
+      <div class="ejercicio-title">La entrevista de ingreso al taller</div>
+      <p>Antes de aceptar a un nuevo alumno, Heker hace una entrevista de admisión. En esa conversación detecta lo que para ella es el requisito esencial: la "compulsión de escribir". No busca técnica sino una cierta pasión irrefrenable. Algunas claves de lo que observa:</p>
+      <ul><li>¿Qué lee? La condición de lector voraz es indispensable.</li>
+      <li>¿Escribe aunque nadie lo vea? La escritura debe ser una necesidad, no una aspiración social.</li>
+      <li>¿Tiene algo que decir con su propia mirada del mundo? Nadie puede dársela si no la tiene.</li></ul>
+      <div class="ejercicio-nota">Heker no le dice a nadie cuál es su tema, pero reconoce cuándo alguien tiene definido su mundo aunque todavía no sepa manejarlo. "Lo señalo cuando eso ocurre".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 02</div>
+      <div class="ejercicio-title">La corrección colectiva sin fotocopias</div>
+      <p>En el taller de Heker los textos se leen en voz alta. No se hacen fotocopias para no "multiplicar el error". La dinámica:</p>
+      <ol><li>El autor lee su texto en voz alta.</li>
+      <li>Cada participante da su opinión: qué funciona, qué no, qué sobra, qué falta. La crítica debe ser concreta y fundamentada.</li>
+      <li>Heker hace su propia devolución al final, siempre después de escuchar al grupo.</li></ol>
+      <p>Cada alumno debe criticar, no solo escuchar: "El esfuerzo que hacés por ver qué pasó con el texto del otro te va a permitir con el tiempo ver qué pasa con tus propios textos".</p>
+      <div class="ejercicio-nota">La crítica no es con "buena onda": "Para mí hay una ética, y por respeto al que viene, lo critico. Esa persona me está pagando para que yo lo ayude a trabajar un texto".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 03</div>
+      <div class="ejercicio-title">Análisis del diálogo en la narración</div>
+      <p>Heker trabaja en profundidad el problema del diálogo, uno de los errores más frecuentes de los escritores que empiezan. El ejercicio parte de reconocer que los diálogos literarios no son transcripciones realistas de conversaciones, sino construcciones que revelan al personaje:</p>
+      <ul><li>Analizar fragmentos de Salinger (sus diálogos no son explícitos, pero "debajo de esos diálogos uno descubre la complejidad de los personajes").</li>
+      <li>Reescribir un diálogo propio eliminando todo lo que la gente "sí diría directamente" para mostrar solo lo que se evita, se insinúa o se contradice.</li>
+      <li>Detectar cuándo un gesto mínimo puede revelar más que una larga descripción.</li></ul>
+      <div class="ejercicio-nota">Para Heker, en la literatura los personajes dialogan y la historia ocurre debajo del diálogo. Un texto donde los personajes "exponen y contestan" no es literatura sino conversación.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Máximas</span><div class="section-rule"></div></div>
+    <h2>Decálogo de Liliana Heker</h2>
+    <div class="maxima"><div class="maxima-n">01</div><div class="maxima-text">Las ganas de escribir vienen escribiendo. Es inútil esperar el instante perfecto en que todos los problemas han desaparecido.</div></div>
+    <div class="maxima"><div class="maxima-n">02</div><div class="maxima-text">La primera versión de un texto es solo un mal necesario. Corregir no es otra cosa que ir encontrando a Moisés dentro del bloque de mármol.</div></div>
+    <div class="maxima"><div class="maxima-n">03</div><div class="maxima-text">En literatura no existen sinónimos ni equivalencias. "Dijo que estaba harto" no equivale a "—Estoy harto—, dijo".</div></div>
+    <div class="maxima"><div class="maxima-n">04</div><div class="maxima-text">Ni la espontaneidad ni la velocidad son valores en literatura. Tantear, tachar, equivocarse tantas veces como haga falta: ese es el verdadero acto creador.</div></div>
+    <div class="maxima"><div class="maxima-n">05</div><div class="maxima-text">Cuando se escribe, no hay que tenerles miedo a los sentimientos, pero tampoco a la lucidez.</div></div>
+    <div class="maxima"><div class="maxima-n">06</div><div class="maxima-text">La realidad proporciona buenas situaciones, pero no construye obras artísticas. No es al acontecimiento real al que debemos ser fieles sino a la luz secreta que descubrimos en él.</div></div>
+    <div class="maxima"><div class="maxima-n">07</div><div class="maxima-text">No hay que empezar un cuento si no se sabe cómo va a terminar. Los buenos finales vienen mandados desde la primera frase.</div></div>
+    <div class="maxima"><div class="maxima-n">08</div><div class="maxima-text">Una novela requiere una escritura y una estructura rigurosas como las de un cuento. Si tiene páginas grises, esos grises deben estar cargados de tensión como en el Guernica.</div></div>
+    <div class="maxima"><div class="maxima-n">09</div><div class="maxima-text">La inspiración no existe; en eso se parece a las brujas. Lo mejor es soltar el freno y dejar rodar la locura cuando llega ese estado de privilegio.</div></div>
+    <div class="maxima"><div class="maxima-n">10</div><div class="maxima-text">Hay que nutrirse de los credos y aprender a dudar de ellos. No existen reglas universales para el oficio de escribir.</div></div>
+  </div>
+  <div class="footer"><span class="footer-credit">Basado en: Maestros de la escritura · Liliana Villanueva · Ediciones Godot, 2018</span><span class="footer-credit">Ficha 02 · Liliana Heker</span></div>
+</div>
+</div>
+
+<!-- ══════════════ UHART ══════════════ -->
+<div id="uhart" class="page-section">
+<div class="ficha">
+  <div class="masthead"><span class="masthead-series">Maestros de la escritura · Liliana Villanueva</span><span class="masthead-num">Ficha 03 / 08</span></div>
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Maestra de escritura</p>
+      <h1>Hebe<br>Uhart</h1>
+      <p class="hero-subtitle">La maestra de la mesura</p>
+      <div class="hero-meta">
+        <span class="meta-chip">Nac. <span>1936, Moreno, Argentina</span></span>
+        <span class="meta-chip">† <span>2018, Buenos Aires</span></span>
+      </div>
+    </div>
+    <svg class="hero-ornament" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="60" rx="38" ry="56" stroke="#1a1710" stroke-width="1.5"/><line x1="40" y1="4" x2="40" y2="116" stroke="#1a1710" stroke-width="1"/><line x1="2" y1="60" x2="78" y2="60" stroke="#1a1710" stroke-width="1"/><ellipse cx="40" cy="60" rx="20" ry="30" stroke="#1a1710" stroke-width="1" stroke-dasharray="3 3"/></svg>
+  </div>
+  <div class="quote-block">
+    <blockquote>Coordinar un taller es como ir caminando por la calle con un grupo de borrachos: cada uno se va para cualquier lado.</blockquote>
+    <cite>— Hebe Uhart</cite>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">La autora</span><div class="section-rule"></div></div>
+    <h2>Vida y obra</h2>
+    <div class="bio-grid">
+      <div><p>Hebe Uhart fue maestra rural desde los diecisiete años, profesora de filosofía en la UBA durante veintisiete años y, paralelamente, una de las escritoras más singulares de la literatura rioplatense. Su prosa, breve y precisa, construida desde la observación minuciosa de lo cotidiano, la convirtió en referencia para escritores de generaciones posteriores.</p>
+      <p>Dio su primer taller de escritura en El Bancadero —un "espacio solidario para combatir la angustia" del barrio de Once— y desde entonces coordinó grupos en su departamento de Almagro durante casi cuatro décadas.</p></div>
+      <div><p>El escritor uruguayo Felisberto Hernández fue su maestro espiritual: lo consideraba un modelo de mirada y de escritura y lo trabajaba en todos sus talleres. La autora Liliana Villanueva asistió al taller de Uhart desde 2003 hasta 2016 y publicó <em>Las clases de Hebe Uhart</em> (Blatt &amp; Ríos, 2015), que recoge los temas de sus clases.</p>
+      <p>Uhart es la única de los ocho maestros del libro que rechaza la corrección formal como eje del taller: para ella, lo que importa no es "lo perfectamente escrito" sino "lo que me conmueve".</p></div>
+    </div>
+    <div style="margin-top:24px;"><p class="info-card-label">Obras principales</p>
+    <ul class="obras-list"><li>Dios, San Pedro y las almas (1962)</li><li>Ser feliz era esto (1981)</li><li>Camilo asciende (1987)</li><li>Del cielo a casa (2003)</li><li>Viajera crónica (2011)</li><li>Turistas (2015)</li><li>Cuentos completos (2016)</li></ul></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Método</span><div class="section-rule"></div></div>
+    <h2>Educar la atención como artesanía</h2>
+    <p>Para Uhart, escribir es "un oficio" y "educar la atención es una artesanía que se aprende y que requiere una escuela de paciencia". El taller es, antes que nada, un motivador: "No quiere decir que todos van a salir escribiendo. Puede servir o no".</p>
+    <p>Su método rechaza la técnica transmisible y la corrección formal. No trabaja con consignas fijas ni exige la corrección entendida como pulimento del texto. En cambio, sus devoluciones son comentarios cualitativos breves: "Esto está vivo", "Esto está muerto", "Guardar este texto". Trabaja principalmente la <em class="hl">crónica literaria, la crónica de viajes y la crónica de la infancia</em>.</p>
+    <p>Cada clase de Uhart tiene un ritual: comenta los textos de la clase anterior, luego se leen los textos nuevos. Al final, desarrolla algún tema que surgió en el taller —la adjetivación, el uso de la metáfora, la construcción de personajes— o lee en voz alta un texto literario de referencia.</p>
+    <p>Para ella, la clave es la curiosidad y la atención al detalle: "Un escritor es un chismoso refinado". Y advierte: "Escriban menos y mejor. No traigan borradores. Es una actitud de vida: la vida no es un borrador".</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El taller</span><div class="section-rule"></div></div>
+    <h2>Contexto y dinámica</h2>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-label">Período activo</div><div class="info-card-value">1982 – 2018<br><small style="font-size:13px;color:var(--muted);">Almagro, Buenos Aires</small></div></div>
+      <div class="info-card"><div class="info-card-label">Géneros</div><div class="info-card-value">Crónica literaria, viajes, infancia</div></div>
+      <div class="info-card"><div class="info-card-label">Dinámica</div><div class="info-card-value">Comentario + lectura + clase temática</div></div>
+      <div class="info-card"><div class="info-card-label">Corrección</div><div class="info-card-value">Cualitativa: "vivo" / "muerto" / "guardar"</div></div>
+      <div class="info-card"><div class="info-card-label">Criterio ingreso</div><div class="info-card-value">Abierto, salvo "locos o muy competitivos"</div></div>
+      <div class="info-card"><div class="info-card-label">Referencias en clase</div><div class="info-card-value">Felisberto Hernández, Lydia Davis, literatura latinoamericana</div></div>
+    </div>
+    <p>Uhart no imponía técnicas sino "consideraciones muy generales sobre la escritura". Seguía a cada alumno para ver "para dónde va cada uno". Era honesta cuando el alumno no correspondía a su modo de ver: "Yo no soy buena maestra para vos. Tenés que buscar otro".</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Ejercicios del taller</span><div class="section-rule"></div></div>
+    <h2>Prácticas de escritura</h2>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 01</div>
+      <div class="ejercicio-title">El paseo con grabador imaginario</div>
+      <p>Salir a caminar por la calle con la instrucción de activar un "grabador imaginario" centrado en un solo sentido: el oído, el olfato, la vista, el tacto. Uhart decía que "cada sentido tiene un cerebro aparte". El ejercicio:</p>
+      <ol><li>Elegir un sentido para la salida (por ejemplo, el oído).</li>
+      <li>Caminar durante veinte o treinta minutos escuchando sin que la vista o los pensamientos intervengan.</li>
+      <li>Al volver, "desgrabar" todo lo percibido en ese sentido, en un texto breve y sin pretensión literaria.</li></ol>
+      <div class="ejercicio-nota">Uhart tomaba como modelo el texto de Felisberto Hernández sobre el semáforo: "La luz roja de un semáforo, en una esquina cualquiera, brota como por primera vez, como naciendo maravillada..." Para Uhart era un ejemplo perfecto de escritura desde el asombro sensorial.</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 02</div>
+      <div class="ejercicio-title">La crónica de viaje desde la incomodidad</div>
+      <p>Inspirado en una clase sobre Lydia Davis, este ejercicio trabaja la escritura desde lo cotidiano incómodo. Uhart pedía:</p>
+      <ol><li>Hacer una lista personal de incomodidades físicas o situacionales del día: una silla sin respaldo, una cola muy larga, el agua que tarda en hervir, un ruido molesto.</li>
+      <li>Escribir cada una como si fuera una escena que alguien observa con distancia y cierta ironía suave.</li>
+      <li>Agregar una frase que integre esa incomodidad al "yo" del narrador, en vez de rechazarla.</li></ol>
+      <div class="ejercicio-nota">"Continuamente estamos en desequilibrio, nos quejamos. La bronca o la ira desmedida no sirven para escribir. Para escribir tengo que proporcionarme un estado de comodidad, de bienestar".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 03</div>
+      <div class="ejercicio-title">La mirada de Felisberto Hernández</div>
+      <p>Uhart trabajaba en sus talleres el texto de Felisberto Hernández "Explicación falsa de mis cuentos" como modelo de cómo mirar y narrar. El ejercicio consistía en:</p>
+      <ol><li>Leer el texto de Hernández en voz alta en clase.</li>
+      <li>Elegir un objeto cotidiano (una silla, una taza, un par de zapatos) y escribir sobre él como si ese objeto tuviera una vida interna propia, sin necesidad de "explicarla".</li>
+      <li>El narrador no debe comprender completamente lo que describe. La perplejidad es parte del tono.</li></ol>
+      <div class="ejercicio-nota">Para Uhart, Felisberto Hernández era su maestro espiritual porque "no sabía de dónde venía ni adónde iba, pero igual escribía". Esa perplejidad productiva era la actitud que buscaba cultivar.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Máximas</span><div class="section-rule"></div></div>
+    <h2>24 máximas del taller de Hebe Uhart</h2>
+    <div class="maxima"><div class="maxima-n">01</div><div class="maxima-text">Escribir no es un acto mágico y misterioso. Escribir es un oficio y educar la atención es una artesanía. La artesanía de la escritura es una escuela de paciencia.</div></div>
+    <div class="maxima"><div class="maxima-n">02</div><div class="maxima-text">Un taller es un motivador. No quiere decir que todos van a salir escribiendo. Puede servir como no.</div></div>
+    <div class="maxima"><div class="maxima-n">03</div><div class="maxima-text">Para escribir hay que ser curioso. Tiene que haber algo en el mundo y en la vida que te llame la atención. Un escritor es un chismoso refinado.</div></div>
+    <div class="maxima"><div class="maxima-n">04</div><div class="maxima-text">Mi experiencia solo la puedo escribir yo. Cada persona es sagrada y trae un montón de historias que son hitos de su vida y quiere y debe recordar.</div></div>
+    <div class="maxima"><div class="maxima-n">05</div><div class="maxima-text">Primero es el contenido y después viene la forma. No se puede querer escribir una novela desde el vamos.</div></div>
+    <div class="maxima"><div class="maxima-n">06</div><div class="maxima-text">El texto va a tener el tamaño que tenga que tener según el contenido y la exigencia del personaje. Es el personaje el que me va a llevar a la trama.</div></div>
+    <div class="maxima"><div class="maxima-n">07</div><div class="maxima-text">La buena observación de los detalles tiene que ver con atender y mirar, con entrenar la mirada.</div></div>
+    <div class="maxima"><div class="maxima-n">08</div><div class="maxima-text">El adjetivo es un juicio de valor. Se trata de eludir, de sugerir, de no explicitar.</div></div>
+    <div class="maxima"><div class="maxima-n">09</div><div class="maxima-text">Un escritor se define no solo por lo que muestra sino por lo que no muestra.</div></div>
+    <div class="maxima"><div class="maxima-n">10</div><div class="maxima-text">La literatura tiene que ver con el trabajo con uno mismo. Cuando escribo tengo que ponerme yo, mi parte entusiasta. Hay que hacer una autoindagación.</div></div>
+    <div class="maxima"><div class="maxima-n">11</div><div class="maxima-text">Escriban menos y mejor. No traigan borradores al taller. Es una actitud de vida: la vida no es un borrador.</div></div>
+    <div class="maxima"><div class="maxima-n">12</div><div class="maxima-text">Escribir implica un coraje, arriesgarse. Hay que atreverse a pensar, a indagarse a sí mismo. Somos expertos en fingir.</div></div>
+    <div class="maxima"><div class="maxima-n">13</div><div class="maxima-text">La pasión no sirve para escribir. La fuerza del texto no viene de la pasión sino de la forma.</div></div>
+    <div class="maxima"><div class="maxima-n">14</div><div class="maxima-text">La sequía es a veces más importante que escribir, que es la última etapa. Se escribe hasta cuando se duerme.</div></div>
+  </div>
+  <div class="footer"><span class="footer-credit">Basado en: Maestros de la escritura · Liliana Villanueva · Ediciones Godot, 2018</span><span class="footer-credit">Ficha 03 · Hebe Uhart</span></div>
+</div>
+</div>
+
+<!-- ══════════════ GILIO ══════════════ -->
+<div id="gilio" class="page-section">
+<div class="ficha">
+  <div class="masthead"><span class="masthead-series">Maestros de la escritura · Liliana Villanueva</span><span class="masthead-num">Ficha 04 / 08</span></div>
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Maestra de periodismo</p>
+      <h1>María Esther<br>Gilio</h1>
+      <p class="hero-subtitle">El periodismo tiene la extensión del océano y la profundidad de un charco</p>
+      <div class="hero-meta">
+        <span class="meta-chip">Nac. <span>1928, Montevideo</span></span>
+        <span class="meta-chip">† <span>2011, Montevideo</span></span>
+      </div>
+    </div>
+    <svg class="hero-ornament" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="60" rx="38" ry="56" stroke="#1a1710" stroke-width="1.5"/><line x1="40" y1="4" x2="40" y2="116" stroke="#1a1710" stroke-width="1"/><line x1="2" y1="60" x2="78" y2="60" stroke="#1a1710" stroke-width="1"/><ellipse cx="40" cy="60" rx="20" ry="30" stroke="#1a1710" stroke-width="1" stroke-dasharray="3 3"/></svg>
+  </div>
+  <div class="quote-block">
+    <blockquote>Todo se aprende escuchando. Estamos precedidos por el lenguaje. Todos tienen algo que decir. Todos. Nunca olvides eso.</blockquote>
+    <cite>— María Esther Gilio</cite>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">La autora</span><div class="section-rule"></div></div>
+    <h2>Vida y obra</h2>
+    <div class="bio-grid">
+      <div><p>María Esther Gilio es considerada la gran entrevistadora del Río de la Plata. Abogada de formación, llegó al periodismo casi por azar cuando un amigo le propuso escribir una nota sobre un pintor uruguayo para el diario <em>La Mañana</em>. Desde entonces se dedicó enteramente a la entrevista y la crónica.</p>
+      <p>Colaboró durante décadas con las revistas y diarios más importantes de la región: <em>Crisis</em>, <em>Brecha</em>, <em>Página 12</em>. Sus mejores entrevistas —a escritores, políticos, artistas, campesinas migrantes— son consideradas piezas literarias.</p></div>
+      <div><p>Dio clases de periodismo en Venezuela, Ecuador, Colombia, Chile y Argentina, centrándose siempre en la entrevista, "donde tengo la experiencia más grande". El único material pedagógico que sobrevivió de sus clases son unas pocas hojas mecanografiadas que ampliaba con la lectura de sus propias entrevistas.</p>
+      <p>La autora la conoció de casualidad en un ómnibus entre Colonia y Montevideo —un encuentro que Gilio convirtió en una entrevista sin que Villanueva se diera cuenta— y que dio inicio a una amistad de siete años.</p></div>
+    </div>
+    <div style="margin-top:24px;"><p class="info-card-label">Obras principales</p>
+    <ul class="obras-list"><li>La guerrilla tupamara (1970)</li><li>De tupamaro a ministro (sobre Mujica)</li><li>Entrevistas con escritores (varios volúmenes)</li><li>Artículos en Crisis, Brecha, Página 12</li></ul></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Método</span><div class="section-rule"></div></div>
+    <h2>El arte de preguntar</h2>
+    <p>Para Gilio la entrevista es "un diálogo entre dos personas" donde pueden darse todos los conflictos de una pareja: "la competencia, la lucha por el poder, los celos, la envidia, el enamoramiento". La misma pregunta formulada por dos entrevistadores distintos puede desatar respuestas completamente diferentes.</p>
+    <p>Su técnica central es la <em class="hl">repregunta</em>: preguntar sobre lo que el entrevistado acaba de decir, insistir en algo que está dentro de él mismo. "La repregunta nace en el entrevistado". Preparaba un mínimo de veinte preguntas para cada entrevista, pero en la práctica podía no usar ninguna.</p>
+    <p>Prefería a los entrevistados "sin marcar por una formación universitaria" —la gente "inocente", cotidiana— porque hablan con naturalidad y dicen cosas inesperadas cuando alguien se toma el trabajo de escucharlos. Y hacía las entrevistas a mano: sin grabador en sus primeros años, lo que la obligaba a una escucha total.</p>
+    <p>Su técnica de desarmado: "Yo me hago la fría" con algunos entrevistados para que no se cuiden; "me hago la inocente o la idiota" con otros para que el entrevistado se abra. No era manipulación sino una actitud: estar completamente al servicio de la historia del otro.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El taller</span><div class="section-rule"></div></div>
+    <h2>Contexto y dinámica</h2>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-label">Período activo</div><div class="info-card-value">Décadas de 1970–2000s<br><small style="font-size:13px;color:var(--muted);">Latinoamérica</small></div></div>
+      <div class="info-card"><div class="info-card-label">Especialidad</div><div class="info-card-value">La entrevista periodística</div></div>
+      <div class="info-card"><div class="info-card-label">Formato</div><div class="info-card-value">Cursillos de 25 días en escuelas de periodismo</div></div>
+      <div class="info-card"><div class="info-card-label">Países</div><div class="info-card-value">Venezuela, Ecuador, Colombia, Chile, Argentina</div></div>
+      <div class="info-card"><div class="info-card-label">Material</div><div class="info-card-value">Texto mecanografiado + lectura de sus propias entrevistas</div></div>
+      <div class="info-card"><div class="info-card-label">Filosofía</div><div class="info-card-value">"No hay técnicas transmisibles, pero sí andariveles"</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Ejercicios del taller</span><div class="section-rule"></div></div>
+    <h2>Prácticas de entrevista</h2>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 01</div>
+      <div class="ejercicio-title">El circo y el aviador: situaciones aparentemente sin relación</div>
+      <p>Gilio planteaba en sus clases dos situaciones que aparentemente no tienen nada en común, pero que en algún punto coinciden. Su ejemplo clásico: un artista de circo y un aviador. El ejercicio:</p>
+      <ol><li>Identificar qué tienen en común esas dos personas en apariencia tan diferentes (en este caso: ambas se juegan la vida en cada actuación/vuelo).</li>
+      <li>Formular las preguntas que le harías a cada una sobre ese elemento común.</li>
+      <li>Pensar en qué cambia el tipo de pregunta según el entrevistado y por qué.</li></ol>
+      <div class="ejercicio-nota">El propósito era que el estudiante se planteara qué es lo central en una entrevista: no el cargo ni la fama del entrevistado, sino la experiencia humana que lo define.</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 02</div>
+      <div class="ejercicio-title">La pregunta que no se puede saltear</div>
+      <p>Antes de cada entrevista, Gilio pedía a sus alumnos que se hicieran a sí mismos una pregunta fundamental:</p>
+      <p><em>"¿Qué razón me lleva a mí a querer entrevistar a esta persona?"</em></p>
+      <p>El ejercicio consistía en escribir esa respuesta antes de la entrevista, desarrollarla en dos o tres párrafos, y luego extraer de ahí la pregunta esencial que no se debe dejar de hacer. La razón personal de interés suele ser el núcleo de la entrevista.</p>
+      <div class="ejercicio-nota">"Puede suceder —y casi siempre sucede— que en esa razón esté la esencia, el núcleo de la entrevista. Es la pregunta que no debés dejar de hacer".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 03</div>
+      <div class="ejercicio-title">La entrevista con el entrevistador desaparecido</div>
+      <p>Inspirado en la técnica de Gay Talese con Frank Sinatra ("Frank Sinatra está resfriado"), este ejercicio propone hacer una entrevista sin hablar con el entrevistado. El ejercicio:</p>
+      <ol><li>Elegir una persona de interés que no concede entrevistas o que es muy reservada.</li>
+      <li>Pasar tiempo en los espacios donde esa persona vive, trabaja o se mueve.</li>
+      <li>Hablar con sus allegados, observar su entorno, registrar anécdotas de terceros.</li>
+      <li>Construir una nota o perfil en el que la "imposibilidad de entrevistar" se convierte en sí misma en el relato.</li></ol>
+      <div class="ejercicio-nota">"De repente es más importante esa situación que haber hablado con él". Gilio misma hizo entrevistas así, incluyendo a Natalia Ginzburg y a Yevtushenko.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Máximas</span><div class="section-rule"></div></div>
+    <h2>Bases para una buena entrevista</h2>
+    <div class="maxima"><div class="maxima-n">01</div><div class="maxima-text">Una entrevista es un diálogo entre dos personas. Es un pedazo de vida.</div></div>
+    <div class="maxima"><div class="maxima-n">02</div><div class="maxima-text">La repregunta es importante porque está basada en algo que dice el entrevistado. La repregunta nace en el entrevistado.</div></div>
+    <div class="maxima"><div class="maxima-n">03</div><div class="maxima-text">Todo se aprende escuchando. Desde el inicio somos hablados, sometidos a una experiencia similar a un baño de lenguaje.</div></div>
+    <div class="maxima"><div class="maxima-n">04</div><div class="maxima-text">Todos tienen algo que decir. Todos. Nunca olvides eso.</div></div>
+    <div class="maxima"><div class="maxima-n">05</div><div class="maxima-text">Es eficaz ofrecer a un entrevistado un campo de escucha no estructurado para que sea él quien lo estructure.</div></div>
+    <div class="maxima"><div class="maxima-n">06</div><div class="maxima-text">Un buen entrevistador dejará el escenario para el entrevistado y tomará para sí mismo una buena butaca en la platea.</div></div>
+    <div class="maxima"><div class="maxima-n">07</div><div class="maxima-text">No hay que renunciar a la primera persona. Bien usada, hará ver mejor al otro.</div></div>
+    <div class="maxima"><div class="maxima-n">08</div><div class="maxima-text">No es conveniente sentirse seguro del todo porque esa actitud podría quitar la sensibilidad para llegar al otro.</div></div>
+    <div class="maxima"><div class="maxima-n">09</div><div class="maxima-text">Las preguntas y respuestas nunca se publican exactamente como fueron. Hay que saber seleccionar, darle liviandad y al mismo tiempo interés a la nota.</div></div>
+    <div class="maxima"><div class="maxima-n">10</div><div class="maxima-text">El periodismo tiene la extensión del océano y la profundidad de un charco.</div></div>
+    <div class="maxima"><div class="maxima-n">11</div><div class="maxima-text">En Latinoamérica se trabaja la entrevista de otra manera que en Europa o en Estados Unidos: tratando de captar una atmósfera para convertir el texto en algo más literario.</div></div>
+    <div class="maxima"><div class="maxima-n">12</div><div class="maxima-text">Hay cierta injusticia en la entrevista: son dos personas las que hablan, pero solo una la transcribe.</div></div>
+  </div>
+  <div class="footer"><span class="footer-credit">Basado en: Maestros de la escritura · Liliana Villanueva · Ediciones Godot, 2018</span><span class="footer-credit">Ficha 04 · María Esther Gilio</span></div>
+</div>
+</div>
+
+<!-- ══════════════ LEVRERO ══════════════ -->
+<div id="levrero" class="page-section">
+<div class="ficha">
+  <div class="masthead"><span class="masthead-series">Maestros de la escritura · Liliana Villanueva</span><span class="masthead-num">Ficha 05 / 08</span></div>
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Maestro de escritura</p>
+      <h1>Mario<br>Levrero</h1>
+      <p class="hero-subtitle">El que sabe es el que sueña</p>
+      <div class="hero-meta">
+        <span class="meta-chip">Nac. <span>1940, Montevideo</span></span>
+        <span class="meta-chip">† <span>2004, Montevideo</span></span>
+      </div>
+    </div>
+    <svg class="hero-ornament" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="60" rx="38" ry="56" stroke="#1a1710" stroke-width="1.5"/><line x1="40" y1="4" x2="40" y2="116" stroke="#1a1710" stroke-width="1"/><line x1="2" y1="60" x2="78" y2="60" stroke="#1a1710" stroke-width="1"/><ellipse cx="40" cy="60" rx="20" ry="30" stroke="#1a1710" stroke-width="1" stroke-dasharray="3 3"/></svg>
+  </div>
+  <div class="quote-block">
+    <blockquote>Los textos surgen desde un impulso oscuro, no racional, probablemente a través de movimientos anímicos y emocionales. Traducir eso a imágenes y las imágenes a palabras es una capacidad que se adquiere.</blockquote>
+    <cite>— Mario Levrero, máximas del taller</cite>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El autor</span><div class="section-rule"></div></div>
+    <h2>Vida y obra</h2>
+    <div class="bio-grid">
+      <div><p>Jorge Mario Varlotta Levrero nació en Montevideo en 1940 y publicó bajo el seudónimo Mario Levrero. Escritor de culto en vida, trabajó como crucigramista, librero y jefe editorial de revistas de ingenio antes de abrir su primer taller de escritura a fines de los años ochenta en Buenos Aires.</p>
+      <p>Su obra oscila entre lo fantástico, lo onírico y lo autobiográfico. Sus géneros son la novela, el cuento y la crónica. En sus últimos años exploró el diario íntimo como forma literaria radical.</p></div>
+      <div><p>Levrero se consideraba —siguiendo a Unamuno— "un hombre que escribe", no un escritor. Su obra fue redescubierta masivamente después de su muerte y ocupa hoy un lugar central en la literatura latinoamericana contemporánea.</p>
+      <p>Desde 1989 hasta su muerte en 2004 dio talleres en Buenos Aires y Montevideo, siempre en colaboración con profesoras de literatura. Sus alumnos siguen reuniéndose para escribir y para contarse los sueños en los que aparece el maestro.</p></div>
+    </div>
+    <div style="margin-top:24px;"><p class="info-card-label">Obras principales</p>
+    <ul class="obras-list"><li>La ciudad (1970)</li><li>El lugar (1982)</li><li>El discurso vacío (1996)</li><li>Irrupciones (1999)</li><li>La novela luminosa (2005)</li><li>La idea fija (2018)</li><li>Conversaciones con Mario Levrero (Silva Olazábal, 2008)</li></ul></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Método</span><div class="section-rule"></div></div>
+    <h2>La alquimia de la escritura</h2>
+    <p>Levrero no enseñaba técnica literaria ni trabajaba textos de otros autores —"toda comparación podía tener efectos negativos"—. Su propuesta era desarrollar la <em class="hl">capacidad de pensar en imágenes</em>, que definía como el verdadero motor de la literatura.</p>
+    <p>Diferenciaba entre "información intelectual" y "escritura literaria": narrar en imágenes es dar la presencia sensorial del narrador y fabricar con ese estímulo un estado de trance en el lector. Los sueños eran su herramienta privilegiada: "el vínculo más directo con el inconsciente, que es el depósito de la experiencia personal más profunda".</p>
+    <p>El único objetivo de cada ejercicio era <em class="hl">encontrar la voz propia</em>: "Todo el estilo personal está borrado, eliminado cuando alguien llega al taller. Lo que busco es oír la voz verdadera del alumno".</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El taller</span><div class="section-rule"></div></div>
+    <h2>Contexto y dinámica</h2>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-label">Período activo</div><div class="info-card-value">1989 – 2004<br><small style="font-size:13px;color:var(--muted);">Buenos Aires y Montevideo</small></div></div>
+      <div class="info-card"><div class="info-card-label">Géneros</div><div class="info-card-value">Narrativa, ejercicios de imagen</div></div>
+      <div class="info-card"><div class="info-card-label">Modalidad</div><div class="info-card-value">Presencial y virtual (desde 2000)</div></div>
+      <div class="info-card"><div class="info-card-label">Tamaño</div><div class="info-card-value">~10 alumnos (presencial)</div></div>
+      <div class="info-card"><div class="info-card-label">Criterio</div><div class="info-card-value">Abierto; aceptaba a quienes "creyeran"</div></div>
+      <div class="info-card"><div class="info-card-label">Socias</div><div class="info-card-value">Cristina Siscar, Elena Corbellini, Gabriela Onetto</div></div>
+    </div>
+    <p style="margin-top:16px;"><span class="info-card-label" style="display:block;margin-bottom:8px;">Alumnos y continuadores notables</span>
+    <span class="alumno-tag">Helvecia Pérez</span><span class="alumno-tag">Pablo Silva Olazábal</span><span class="alumno-tag">Christian Arán</span><span class="alumno-tag">Gabriela Onetto</span><span class="alumno-tag">Grupo "Narrares" (post-2004)</span></p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Ejercicios del taller</span><div class="section-rule"></div></div>
+    <h2>Consignas y ejercicios</h2>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 01</div>
+      <div class="ejercicio-title">El sueño como punto de partida</div>
+      <p>El ejercicio más productivo del taller, en tres etapas independientes:</p>
+      <ol><li>Anotar un sueño reciente lo más exactamente posible, con todos los detalles, de modo simple y sin ninguna pretensión literaria.</li>
+      <li>Escribir un relato basado en la <em>sensación que dejó</em> ese sueño. El relato puede no tener relación argumental con el sueño.</li>
+      <li>Variación avanzada: cada uno relata su sueño en voz alta, pero es <em>otra persona</em> quien lo escribe.</li></ol>
+      <div class="ejercicio-nota">"Los sueños tienen imaginación y son uno de los pocos vínculos que tiene alguna gente para conectarse con el inconsciente, que es el depósito de la experiencia personal más profunda y la materia prima esencial del arte".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 02</div>
+      <div class="ejercicio-title">La acción nimia en cámara lenta</div>
+      <p>El ejercicio más odiado —y el más importante— del taller. Se elige una acción cotidiana de un minuto: pelar un huevo duro, encender el fuego, cebar un mate, servirse un café. Esa acción debe narrarse en tres versiones:</p>
+      <ol><li>En media página</li><li>En una página completa</li><li>En dos páginas</li></ol>
+      <p>Cada versión explora distintas velocidades: en tiempo real, alargando la acción, acortándola. El narrador debe estar encastrado en la escena con todos los sentidos activos.</p>
+      <div class="ejercicio-nota">"El ejercicio apunta a aprender que el argumento es lo menos importante de una historia. Lo que atrae y otorga originalidad al texto es la proyección personal, el estilo" (Pablo Silva Olazábal).</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 03</div>
+      <div class="ejercicio-title">El objeto de la vitrina (narrar desde el tacto)</div>
+      <p>Levrero tenía en su casa una vitrina llena de objetos con múltiples elementos pegados.</p>
+      <ol><li>Elegir un objeto pequeño y complejo (una cajita artesanal, un juguete, una piedra).</li>
+      <li>Sentarse cómodamente y manesearlo durante un buen rato, prestando atención solo al tacto.</li>
+      <li>Escribir una descripción del objeto basada exclusivamente en las impresiones táctiles, sin revelar qué es el objeto.</li></ol>
+      <div class="ejercicio-nota">Levrero anotó en <em>La novela luminosa</em> su sorpresa ante la descripción de una alumna que eligió el objeto más inesperado: "Mis alumnos no dejan de asombrarme".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 04</div>
+      <div class="ejercicio-title">La fotografía: atracción, rechazo, indiferencia</div>
+      <p>Levrero traía fotografías de su amigo Eduardo Abel Giménez: imágenes deliberadamente ambiguas, con mucha bruma y poca definición.</p>
+      <ol><li>Observar el conjunto de fotos brevemente.</li>
+      <li>Elegir tres: una que te atraiga, una que te produzca rechazo, una que te resulte indiferente.</li>
+      <li>En casa, escribir un relato que surja de las tres emociones, sin necesidad de describir las fotos.</li></ol>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 05</div>
+      <div class="ejercicio-title">La anécdota del día (en primera persona del presente)</div>
+      <p>Consigna recurrente para abrir la sesión. Rescatar del recuerdo algo que pasó durante ese mismo día. Reglas: debe ser algo real, cotidiano, no espectacular; debe escribirse en <strong>primera persona del singular</strong> y en <strong>presente absoluto</strong>; el narrador debe estar encastrado en la escena con todos sus sentidos activos.</p>
+      <div class="ejercicio-nota">"La condición más importante: no elegir algo espectacular. Levrero prefería lo nimio, lo que pasa desapercibido".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 06</div>
+      <div class="ejercicio-title">Frases de inicio para completar o continuar</div>
+      <p>Levrero daba frases de inicio y pedía textos de extensión libre. No buscaba belleza literaria sino autenticidad de voz:</p>
+      <ul><li>"Mi abuelo es un gran pez —me dijo el chico—. Lo estamos abrazando hasta que vuelva al mar."</li>
+      <li>"Por creerme eterno —por creernos eternos— no fui a verlo. Cuando fui, fue para despedirlo."</li>
+      <li>"El escarabajo [elegir el insecto que menos te guste] avanza con gran dificultad…"</li></ul>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 07</div>
+      <div class="ejercicio-title">El cuento para un niño de cuatro años</div>
+      <p>Escribir un relato para un niño de cuatro o cinco años ávido de que le cuenten una historia. La paradoja: mantener un alto nivel de tensión narrativa, sin que el texto sea un relato para niños. El ejercicio obliga a preguntarse cuáles son los mecanismos reales del suspenso y el interés narrativo, despojados de toda retórica adulta.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Máximas</span><div class="section-rule"></div></div>
+    <h2>Selección de máximas de escritura</h2>
+    <div class="maxima"><div class="maxima-n">01</div><div class="maxima-text">Se escribe a partir de vivencias. Para escribir hay que mirar hacia adentro y observar lo que ahí se ve.</div></div>
+    <div class="maxima"><div class="maxima-n">02</div><div class="maxima-text">La literatura propiamente dicha es imagen.</div></div>
+    <div class="maxima"><div class="maxima-n">03</div><div class="maxima-text">Yo no elijo el tema. El tema es el que suele elegirme a mí.</div></div>
+    <div class="maxima"><div class="maxima-n">04</div><div class="maxima-text">En un momento dado, los personajes cobran vida propia y empiezan a hacer lo que se les antoja. Esa es la parte más disfrutable de la escritura.</div></div>
+    <div class="maxima"><div class="maxima-n">05</div><div class="maxima-text">Escribir no es sentarse a escribir; esa es la última etapa. Lo imprescindible es el tiempo de ocio.</div></div>
+    <div class="maxima"><div class="maxima-n">06</div><div class="maxima-text">El estilo es innato, solo tenés que dejarlo manifestarse. Los que luchan por fabricarse un estilo son los que no pueden mirar hacia adentro.</div></div>
+    <div class="maxima"><div class="maxima-n">07</div><div class="maxima-text">Escribir es una forma de leer: el escritor escribe para leer lo que va apareciendo. Leer es también una forma de escribir.</div></div>
+    <div class="maxima"><div class="maxima-n">08</div><div class="maxima-text">Conviene dejar pasar un tiempo para crear distancia con el texto y leer lo que está escrito, y no lo que uno tiene en mente.</div></div>
+    <div class="maxima"><div class="maxima-n">09</div><div class="maxima-text">Publicá solo los cuentos buenos, los que sabés que son buenos sin tener que defenderte ante vos mismo.</div></div>
+    <div class="maxima"><div class="maxima-n">10</div><div class="maxima-text">El que sabe es el que sueña.</div></div>
+  </div>
+  <div class="footer"><span class="footer-credit">Basado en: Maestros de la escritura · Liliana Villanueva · Ediciones Godot, 2018</span><span class="footer-credit">Ficha 05 · Mario Levrero</span></div>
+</div>
+</div>
+
+<!-- ══════════════ LAISECA ══════════════ -->
+<div id="laiseca" class="page-section">
+<div class="ficha">
+  <div class="masthead"><span class="masthead-series">Maestros de la escritura · Liliana Villanueva</span><span class="masthead-num">Ficha 06 / 08</span></div>
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Maestro de escritura</p>
+      <h1>Alberto<br>Laiseca</h1>
+      <p class="hero-subtitle">El maestro Lai o el escritor maldito que hablaba del amor</p>
+      <div class="hero-meta">
+        <span class="meta-chip">Nac. <span>1941, Rosario, Argentina</span></span>
+        <span class="meta-chip">† <span>2016, Buenos Aires</span></span>
+      </div>
+    </div>
+    <svg class="hero-ornament" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="60" rx="38" ry="56" stroke="#1a1710" stroke-width="1.5"/><line x1="40" y1="4" x2="40" y2="116" stroke="#1a1710" stroke-width="1"/><line x1="2" y1="60" x2="78" y2="60" stroke="#1a1710" stroke-width="1"/><ellipse cx="40" cy="60" rx="20" ry="30" stroke="#1a1710" stroke-width="1" stroke-dasharray="3 3"/></svg>
+  </div>
+  <div class="quote-block">
+    <blockquote>Sin imaginación la sociedad humana se destruye. Sin imaginación no hay física teórica, tampoco química ni descubrimientos de la medicina. Ni hablar del arte. El arte sirve para que funcione todo lo otro.</blockquote>
+    <cite>— Alberto Laiseca</cite>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El autor</span><div class="section-rule"></div></div>
+    <h2>Vida y obra</h2>
+    <div class="bio-grid">
+      <div><p>Alberto Laiseca nació en Rosario en 1941. Creció en Camilo Aldao, un pueblo al sudeste de Córdoba, y llegó a Buenos Aires con ambiciones literarias y una obra que tardó décadas en comenzar a circular. Su novela <em>Los Sorias</em> —la más larga de la literatura argentina, con más de 1.300 páginas— es la cima de lo que él mismo denominó "realismo delirante": una escritura donde la exageración, la imaginación desbordante y el humor negro se mezclan con referencias históricas, militares y astronómicas documentadas con rigor.</p></div>
+      <div><p>Laiseca fue un autodidacta que estudió física teórica y astrología con la misma seriedad con que leía a Poe o a Dostoiévski. Dio talleres de escritura durante veintitrés años, siempre centrados en el desarrollo de la imaginación. La autora lo entrevistó en el geriátrico del barrio de Flores donde vivía sus últimos años, en una silla de ruedas, reclamando cigarrillos y hablando de literatura con voz cavernosa y lúcida. Murió el 22 de diciembre de 2016.</p></div>
+    </div>
+    <div style="margin-top:24px;"><p class="info-card-label">Obras principales</p>
+    <ul class="obras-list"><li>Los Sorias (1982, pub. 1998)</li><li>La hija de Kheops (1992)</li><li>La puerta del viento (1982)</li><li>Por favor, ¡plágienme! (ensayo)</li><li>Cuentos y textos varios</li></ul></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Método</span><div class="section-rule"></div></div>
+    <h2>El desarrollo de la imaginación</h2>
+    <p>Laiseca no daba técnicas literarias. Lo suyo era siempre <em class="hl">el desarrollo de la imaginación</em> a través de ejercicios y consignas que los alumnos "nunca se habrían ocurrido hacer por su cuenta". Usaba el "realismo delirante" como herramienta pedagógica: proponer situaciones exageradas, disparatadas o delirantes como punto de partida para llegar mejor a la realidad.</p>
+    <p>Su filosofía sobre la corrección se acercaba al Tao: "corregir" era casi "reprimir". Nunca quería que sus alumnos se sintieran bloqueados. Criticaba pero "sin pegar": "Si yo te destruyo el texto, vas a sentirte reprimida y no vas a escribir más el resto de tu vida. Lo que yo no quiero es reprimir a los alumnos".</p>
+    <p>Los textos se leían en clase. Laiseca daba su opinión y los alumnos también. El ejercicio era para todos igual, la discusión era colectiva. No permitía textos demasiado largos —máximo dos páginas en grupos numerosos— y eso obligaba a la síntesis.</p>
+    <p>Su máxima fundamental era la más sencilla: "A escribir se aprende escribiendo". Y la segunda: "El que no abandona, gana".</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El taller</span><div class="section-rule"></div></div>
+    <h2>Contexto y dinámica</h2>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-label">Período activo</div><div class="info-card-value">~1989 – 2012<br><small style="font-size:13px;color:var(--muted);">Buenos Aires</small></div></div>
+      <div class="info-card"><div class="info-card-label">Géneros</div><div class="info-card-value">Narrativa con énfasis en imaginación</div></div>
+      <div class="info-card"><div class="info-card-label">Grupos</div><div class="info-card-value">Varios simultáneos (2-3 por día en sus mejores años)</div></div>
+      <div class="info-card"><div class="info-card-label">Dinámica</div><div class="info-card-value">Consigna → escritura en casa → lectura oral → debate colectivo</div></div>
+      <div class="info-card"><div class="info-card-label">Corrección</div><div class="info-card-value">Escueta, espaciada, siempre sin "pegar"</div></div>
+      <div class="info-card"><div class="info-card-label">Lecturas de referencia</div><div class="info-card-value">Edgar Allan Poe, Oscar Wilde, Stephen King</div></div>
+    </div>
+    <p>El taller de Laiseca funcionaba en el PH de Caballito donde vivía, entre libros forrados de blanco, ceniceros llenos y botellas de cerveza. Las reuniones eran informales, casi como una charla de amigos. Él hablaba de su propia obra, de cómo llegó a escribir algunos libros, y dejaba que los alumnos leyeran y debatieran.</p>
+    <p style="margin-top:16px;"><span class="info-card-label" style="display:block;margin-bottom:8px;">Alumnos notables</span>
+    <span class="alumno-tag">Selva Almada</span><span class="alumno-tag">Alejandra Zina</span><span class="alumno-tag">Gabriela Cabezón Cámara</span><span class="alumno-tag">Leonardo Oyola</span><span class="alumno-tag">Leandro Ávalos Blacha</span></p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Ejercicios del taller</span><div class="section-rule"></div></div>
+    <h2>Consignas del Maestro Lai</h2>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 01</div>
+      <div class="ejercicio-title">El horroroso primer día de clase</div>
+      <p>Una de las primeras consignas que Laiseca daba en todos sus talleres. La instrucción era simple y la extensión libre:</p>
+      <p>Escribir sobre "El horroroso primer día de clase en la escuela primaria".</p>
+      <p>El ejercicio tenía como objetivo liberar el material autobiográfico más temprano, el de la primera infancia, y usarlo como disparador. No se trataba de recrear el horror literalmente sino de partir de esa emoción primaria para llegar a cualquier otro lugar narrativo.</p>
+      <div class="ejercicio-nota">Para Laiseca, "la infancia es un material muy rico y da para hacer literatura". La consigna funcionaba porque todos tienen un primer día de escuela y ese recuerdo activa zonas profundas de la memoria sensorial.</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 02</div>
+      <div class="ejercicio-title">El realismo delirante: disparadores de imaginación</div>
+      <p>Laiseca daba consignas deliberadamente exageradas o disparatadas como punto de partida. Algunos ejemplos reales:</p>
+      <ul><li>"Hay un monstruo viviendo debajo de mi cama."</li>
+      <li>"Descripción de una lluvia espantosa (que no es agua)."</li>
+      <li>"Dos tetas en un frasco de formol sobre la mesita de luz."</li>
+      <li>"Un hijo mata a su padre con una ballesta."</li></ul>
+      <p>El alumno podía seguir la consigna o usarla como disparador para ir a cualquier otro lugar. "Nunca me pongo en dictador. Propongo una base pero no reprimo".</p>
+      <div class="ejercicio-nota">"El delirio no aleja de la realidad: sirve para verla mejor. El delirio exagera, magnifica o achica, reduce o hace las cosas enormes. Usted es el microscopio" (Laiseca).</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 03</div>
+      <div class="ejercicio-title">La casa abandonada: historia de terror incompleta</div>
+      <p>Laiseca daba el inicio de una historia de terror y el ejercicio era completarla o desviarse hacia otro lugar. Ejemplo:</p>
+      <p><em>"Un tipo tiene un accidente en la ruta. Está perdido. Entra a un bosque a buscar ayuda. Ve una casa abandonada con una tapia. El tipo salta la tapia. Entra a la casa. Pregunta si hay alguien, no escucha respuesta. Sube al primer piso. Hay un cadáver de un niño lleno de moscas. Aparece una vieja..."</em></p>
+      <p>El alumno decidía si seguir la lógica del terror, si desviarse hacia otro género, o si subvertir completamente las expectativas que la consigna generaba.</p>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 04</div>
+      <div class="ejercicio-title">Leer más, escribir más, vivir más</div>
+      <p>Este no era un ejercicio de taller sino una consigna de vida. Laiseca la tomaba de Stephen King (<em>Mientras escribo</em>) y le agregaba un tercer elemento:</p>
+      <ol><li>Leer más (o empezar a leer, para quien no lo hace).</li>
+      <li>Escribir más.</li>
+      <li>Vivir más —la experiencia de vida es la materia prima insustituible—.</li></ol>
+      <div class="ejercicio-nota">"Yo todo lo que aprendí, lo aprendí gracias a las mujeres. Sin las mujeres yo no hubiera sido ni la tercera parte de un hombre, así que se podrá imaginar".</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Máximas</span><div class="section-rule"></div></div>
+    <h2>16 máximas del Maestro Lai</h2>
+    <div class="maxima"><div class="maxima-n">01</div><div class="maxima-text">A escribir se aprende escribiendo.</div></div>
+    <div class="maxima"><div class="maxima-n">02</div><div class="maxima-text">La inspiración no viene sola. Hay que provocarla.</div></div>
+    <div class="maxima"><div class="maxima-n">03</div><div class="maxima-text">Leer más, escribir más, vivir más.</div></div>
+    <div class="maxima"><div class="maxima-n">04</div><div class="maxima-text">No es indiferente hacer o no taller. El taller ayuda. Mis alumnos han crecido con mi taller y yo he crecido con ellos.</div></div>
+    <div class="maxima"><div class="maxima-n">05</div><div class="maxima-text">Nunca me pongo en dictador. Propongo una base, doy pautas y los dejo trabajar solos. No los reprimo. Critico, pero no pego.</div></div>
+    <div class="maxima"><div class="maxima-n">06</div><div class="maxima-text">Hay una mala costumbre argentina y es irse. A la gente no le gusta terminar lo que empieza. El que no abandona, gana.</div></div>
+    <div class="maxima"><div class="maxima-n">07</div><div class="maxima-text">Irse por las ramas, en la escritura y en la vida, es lindo. Es parte de la vida.</div></div>
+    <div class="maxima"><div class="maxima-n">08</div><div class="maxima-text">El humor es fundamental. ¿Qué, si no el humor, nos ha sostenido en este tiempo terrible?</div></div>
+    <div class="maxima"><div class="maxima-n">09</div><div class="maxima-text">El "realismo delirante" no aleja de la realidad: sirve para verla mejor. El delirio exagera pero construye.</div></div>
+    <div class="maxima"><div class="maxima-n">10</div><div class="maxima-text">Para escribir propongo una "lectura estudiosa", una investigación a fondo del tema. A veces hay que leer un libro entero para escribir una página y media.</div></div>
+    <div class="maxima"><div class="maxima-n">11</div><div class="maxima-text">La infancia es un material muy rico y da para hacer literatura.</div></div>
+    <div class="maxima"><div class="maxima-n">12</div><div class="maxima-text">Si un texto no te sale, es probable que no lo hayas elaborado suficientemente adentro tuyo.</div></div>
+    <div class="maxima"><div class="maxima-n">13</div><div class="maxima-text">El taller puede hacer escuela. Depende del maestro y de los alumnos. Los alumnos a su vez forman a otros, y otros, y otros.</div></div>
+    <div class="maxima"><div class="maxima-n">14</div><div class="maxima-text">Los maestros forman a sus discípulos, pero todo el mundo olvida que los discípulos han formado al maestro. Esa es una verdad grande como un templo.</div></div>
+    <div class="maxima"><div class="maxima-n">15</div><div class="maxima-text">Si no hay amor, no se puede crecer. Ni crecés vos ni hacés crecer a tus alumnos.</div></div>
+    <div class="maxima"><div class="maxima-n">16</div><div class="maxima-text">No quiero formar un ejército de Laisequitas. Felizmente no reconozco en la obra de mis alumnos marcas mías.</div></div>
+  </div>
+  <div class="footer"><span class="footer-credit">Basado en: Maestros de la escritura · Liliana Villanueva · Ediciones Godot, 2018</span><span class="footer-credit">Ficha 06 · Alberto Laiseca</span></div>
+</div>
+</div>
+
+<!-- ══════════════ STEIMBERG ══════════════ -->
+<div id="steimberg" class="page-section">
+<div class="ficha">
+  <div class="masthead"><span class="masthead-series">Maestros de la escritura · Liliana Villanueva</span><span class="masthead-num">Ficha 07 / 08</span></div>
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Maestra de escritura</p>
+      <h1>Alicia<br>Steimberg</h1>
+      <p class="hero-subtitle">El taller no hace al escritor</p>
+      <div class="hero-meta">
+        <span class="meta-chip">Nac. <span>1933, Buenos Aires</span></span>
+        <span class="meta-chip">† <span>2012, Buenos Aires</span></span>
+      </div>
+    </div>
+    <svg class="hero-ornament" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="60" rx="38" ry="56" stroke="#1a1710" stroke-width="1.5"/><line x1="40" y1="4" x2="40" y2="116" stroke="#1a1710" stroke-width="1"/><line x1="2" y1="60" x2="78" y2="60" stroke="#1a1710" stroke-width="1"/><ellipse cx="40" cy="60" rx="20" ry="30" stroke="#1a1710" stroke-width="1" stroke-dasharray="3 3"/></svg>
+  </div>
+  <div class="quote-block">
+    <blockquote>Yo estuve veinte años trabajando para publicar mi primer libro. Escribía con actitud literaria desde los dieciocho años. Hay que pensar la frase, trabajarla hasta que esté lista. Yo escribo adentro del párrafo.</blockquote>
+    <cite>— Alicia Steimberg</cite>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">La autora</span><div class="section-rule"></div></div>
+    <h2>Vida y obra</h2>
+    <div class="bio-grid">
+      <div><p>Alicia Steimberg fue novelista, traductora y maestra de escritura. Publicó su primera novela, <em>Músicos y relojeros</em>, a los treinta y ocho años, después de veinte años de escritura secreta. Ese retraso deliberado marcó su pedagogía: creía que la escritura necesita tiempo de maduración y que un taller, a lo sumo, "acorta el tiempo que se necesita para aprender los resortes del oficio".</p>
+      <p>Sus novelas, escritas con humor irónico y a veces surreal, abordan la identidad judeo-argentina, la memoria familiar, el erotismo y la cotidianidad femenina. <em>Amatista</em>, su novela erótica, fue finalista del premio "La sonrisa vertical".</p></div>
+      <div><p>La autora la conoció en el taller de Hebe Uhart y luego asistió brevemente a uno de sus talleres de verano de 2009. Su método era radicalmente diferente al de los demás maestros del libro: no leía textos de los alumnos en clase, sino que pedía cartas personales via email que corregía individualmente.</p>
+      <p>Sufría de acúfenos —alucinaciones auditivas— que la hacían escuchar música sinfónica o la Marcha Peronista en los momentos de silencio. Murió en Buenos Aires en 2012.</p></div>
+    </div>
+    <div style="margin-top:24px;"><p class="info-card-label">Obras principales</p>
+    <ul class="obras-list"><li>Músicos y relojeros (1971)</li><li>Su espíritu inocente (1981)</li><li>La loca 101 (1973)</li><li>Amatista (1989)</li><li>Cuando digo Magdalena (1992)</li><li>La música de Julieta (2002)</li></ul></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Método</span><div class="section-rule"></div></div>
+    <h2>La visibilidad y la intención literaria</h2>
+    <p>Steimberg no creía que pudiera enseñarse a escribir. Daba más importancia a <em class="hl">la lectura y la comprensión de textos</em> que a los ejercicios. Su concepto central era la "intención literaria": "pensar la frase, trabajarla hasta que esté lista. Yo escribo adentro del párrafo".</p>
+    <p>Para ella, un texto malo es "oscuro como una caverna" porque no ofrece imágenes sino ideas y opiniones. La <em class="hl">visibilidad</em> —la capacidad de generar imágenes mentales en el lector— era para Steimberg la cualidad fundamental de la literatura. "La inmensa mayoría de los buenos textos son visuales".</p>
+    <p>Leía en clase textos de Saer, Felisberto Hernández, Di Benedetto, Onetti, para mostrar cómo funcionaba la visibilidad en la prosa. Luego pedía a los alumnos que no escribieran en registro coloquial, sino con "cierta complejidad": buscar palabras en el diccionario, hacer oraciones más largas, pensar en la sonoridad.</p>
+    <p>Su método de corrección era único: pedía cartas personales enviadas por email que leía, corregía y devolvía individualmente. No admitía la lectura en voz alta en clase. "No quiero leer textos. Si lo hiciera no me alcanzaría el tiempo para nada".</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El taller</span><div class="section-rule"></div></div>
+    <h2>Contexto y dinámica</h2>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-label">Período activo</div><div class="info-card-value">~1990 – 2010<br><small style="font-size:13px;color:var(--muted);">Almagro, Buenos Aires</small></div></div>
+      <div class="info-card"><div class="info-card-label">Géneros</div><div class="info-card-value">Narrativa, visibilidad, estilo</div></div>
+      <div class="info-card"><div class="info-card-label">Formato único</div><div class="info-card-value">Clase magistral + carta individual por email</div></div>
+      <div class="info-card"><div class="info-card-label">Clase</div><div class="info-card-value">Primera parte: Steimberg habla y lee textos. Segunda: "at five o'clock", té y conversación</div></div>
+      <div class="info-card"><div class="info-card-label">Puntualidad</div><div class="info-card-value">Estricta. Llegada 15 minutos antes</div></div>
+      <div class="info-card"><div class="info-card-label">Traducciones</div><div class="ref-author" style="font-size:14px;margin-top:4px;">Traducir es escribir: usa las mismas herramientas</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Ejercicios del taller</span><div class="section-rule"></div></div>
+    <h2>Prácticas de escritura</h2>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 01</div>
+      <div class="ejercicio-title">La carta personal como texto literario</div>
+      <p>El ejercicio central y más singular del método de Steimberg. En lugar de leer textos en clase, pedía a los alumnos que le enviaran una carta personal por email. Las instrucciones:</p>
+      <ol><li>Escribir la carta sobre un tema libre: algo que te pasó, la infancia, un recuerdo. Elegir un recuerdo y no ponerle límites, hacer asociaciones libres.</li>
+      <li>Escribirla con "cierta complejidad": oraciones más largas que lo habitual, pensando en la sonoridad de las palabras.</li>
+      <li>No escribir como se habla. Escribir como si se estuviera traduciendo algo propio al lenguaje escrito.</li></ol>
+      <p>Steimberg leía cada carta y devolvía una corrección individual: proponía dar vuelta oraciones, buscar palabras, densificar frases.</p>
+      <div class="ejercicio-nota">"Me fijo en cómo hacés esas ligazones. Es un lindo ejercicio porque revela cierta destreza. En una carta veo si el alumno aprecia lo que escribe".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 02</div>
+      <div class="ejercicio-title">Los diez primeros párrafos: prueba de visibilidad</div>
+      <p>Steimberg proponía sacar diez libros de cualquier biblioteca y leer solo el primer párrafo de cada uno. El ejercicio:</p>
+      <ol><li>Leer en silencio el primer párrafo de cada libro.</li>
+      <li>Determinar si ese párrafo genera imágenes mentales o solo transmite información abstracta.</li>
+      <li>Identificar exactamente en qué palabras o frases surge la imagen.</li></ol>
+      <p>Steimberg leía en clase fragmentos de Di Benedetto (<em>El silenciero</em>), Onetti (<em>Los adioses</em>), Granata (<em>Los viernes de la eternidad</em>) como ejemplos de visibilidad.</p>
+      <div class="ejercicio-nota">"Lo bueno de las primeras frases es que no tenés que buscarlas ni señalarlas: cuando un texto es bueno te das cuenta".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 03</div>
+      <div class="ejercicio-title">La asociación libre: irte por las ramas a propósito</div>
+      <p>Steimberg recomendaba practicar la asociación libre durante al menos un rato cada día:</p>
+      <ol><li>Elegir un objeto cotidiano en el campo de visión (una taza, un ventilador, una ventana).</li>
+      <li>Dejar que ese objeto dispare recuerdos, asociaciones, imágenes sin dirección prefijada.</li>
+      <li>Escribir todo lo que surja sin corregir ni editar, durante diez o quince minutos.</li>
+      <li>Releer y subrayar qué fragmentos tienen densidad literaria.</li></ol>
+      <div class="ejercicio-nota">"La asociación libre es un alegre desorden que ayuda a alivianar los textos, apartarlos de la formalidad. Es una manera de hacer descansar la mente y de darle lugar a la invención o al recuerdo".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 04</div>
+      <div class="ejercicio-title">Inventar palabras a partir de siglas o chapas de autos</div>
+      <p>Uno de los ejercicios más lúdicos de Steimberg: inventar palabras a partir de combinaciones de letras encontradas en el entorno cotidiano.</p>
+      <ol><li>Observar las siglas o letras de una chapa de auto (o cualquier combinación de letras sin sentido).</li>
+      <li>Inventar una palabra con esa combinación y darle una definición literaria.</li>
+      <li>Usarla en una oración que tenga densidad y cierta rareza.</li></ol>
+      <div class="ejercicio-nota">El propósito era que los alumnos desarrollaran una relación activa y creativa con el lenguaje, saliendo del uso habitual de las palabras.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Referencias literarias</span><div class="section-rule"></div></div>
+    <h2>Obras leídas en clase</h2>
+    <div class="ref-item"><div class="ref-bullet"></div><div><div class="ref-title">El silenciero</div><div class="ref-author">Antonio Di Benedetto</div><div class="ref-note">Steimberg lo leía en voz alta en clase como ejemplo de visibilidad y extrañamiento: "La cancel da directamente al menguado patio de baldosas. Yo abro la cancel y encuentro el ruido..."</div></div></div>
+    <div class="ref-item"><div class="ref-bullet"></div><div><div class="ref-title">Los adioses</div><div class="ref-author">Juan Carlos Onetti</div><div class="ref-note">Leído como ejemplo de imagen en movimiento y ambigüedad deliberada. Steimberg admiraba cómo Onetti convertía las palabras en imágenes.</div></div></div>
+    <div class="ref-item"><div class="ref-bullet"></div><div><div class="ref-title">Los viernes de la eternidad</div><div class="ref-author">María Granata</div><div class="ref-note">Su primera frase —"Se quedó mirándolo, quieta como una langosta"— era para Steimberg un ejemplo perfecto de imagen que "atrapa desde las palabras".</div></div></div>
+    <div class="ref-item"><div class="ref-bullet"></div><div><div class="ref-title">La mayor</div><div class="ref-author">Juan José Saer</div><div class="ref-note">Lo leía para mostrar el "extrañamiento": la técnica de acercarse tanto a los detalles que producen una impresión diferente de la realidad.</div></div></div>
+  </div>
+  <div class="footer"><span class="footer-credit">Basado en: Maestros de la escritura · Liliana Villanueva · Ediciones Godot, 2018</span><span class="footer-credit">Ficha 07 · Alicia Steimberg</span></div>
+</div>
+</div>
+
+<!-- ══════════════ GUERRIERO ══════════════ -->
+<div id="guerriero" class="page-section">
+<div class="ficha">
+  <div class="masthead"><span class="masthead-series">Maestros de la escritura · Liliana Villanueva</span><span class="masthead-num">Ficha 08 / 08</span></div>
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-label">Maestra de periodismo narrativo</p>
+      <h1>Leila<br>Guerriero</h1>
+      <p class="hero-subtitle">Escribir es construir sentido con las palabras</p>
+      <div class="hero-meta">
+        <span class="meta-chip">Nac. <span>1967, Junín, Argentina</span></span>
+        <span class="meta-chip">Géneros <span>Crónica · Perfil · Periodismo narrativo</span></span>
+      </div>
+    </div>
+    <svg class="hero-ornament" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="40" cy="60" rx="38" ry="56" stroke="#1a1710" stroke-width="1.5"/><line x1="40" y1="4" x2="40" y2="116" stroke="#1a1710" stroke-width="1"/><line x1="2" y1="60" x2="78" y2="60" stroke="#1a1710" stroke-width="1"/><ellipse cx="40" cy="60" rx="20" ry="30" stroke="#1a1710" stroke-width="1" stroke-dasharray="3 3"/></svg>
+  </div>
+  <div class="quote-block">
+    <blockquote>Hay que preguntar absolutamente todo, rodear a la persona con preguntas. Hay que preguntar como quien no sabe, esperar como quien tiene tiempo y estar allí como quien no está.</blockquote>
+    <cite>— Leila Guerriero</cite>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">La autora</span><div class="section-rule"></div></div>
+    <h2>Vida y obra</h2>
+    <div class="bio-grid">
+      <div><p>Leila Guerriero es una de las figuras más influyentes del periodismo narrativo latinoamericano. Nació en Junín, provincia de Buenos Aires, donde tuvo un maestro —el "Señor Equis"— que la acompañó en sus lecturas de adolescente y la "demolió" con una lista de más de cien autores para "una leve cultura general".</p>
+      <p>Colabora con los medios más importantes de la región —<em>El País</em>, <em>Rolling Stone</em>, <em>La Nación</em>— y es editora y autora de perfiles, crónicas y ensayos reunidos en varios libros. Es la más joven de los ocho maestros del libro.</p></div>
+      <div><p>Comenzó a dar talleres en 2004 en el CELAP de Panamá. Su taller privado en Buenos Aires tiene lista de espera y solo admite periodistas en actividad con proyectos concretos. Se reúnen los lunes de seis a nueve, en su propia casa, puntual.</p>
+      <p>Su metodología parte de la convicción de que dar taller es como ser editor: "El lugar del editor, como de la persona que está al frente de un taller, es ayudar al autor a encontrar su forma más genuina, trabajar juntos para que lo que brille sea el texto, o en todo caso, el autor".</p></div>
+    </div>
+    <div style="margin-top:24px;"><p class="info-card-label">Obras principales</p>
+    <ul class="obras-list"><li>Los suicidas del fin del mundo (2005)</li><li>Una historia sencilla (2013)</li><li>Frutos extraños (crónicas, 2009)</li><li>Zona de obras (ensayos, 2014)</li><li>La otra guerra (2021)</li></ul></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Método</span><div class="section-rule"></div></div>
+    <h2>La mirada y el universal</h2>
+    <p>Para Guerriero, toda pieza periodística es "una edición de la realidad". La esencia del periodismo narrativo se juega en la diferencia entre contar una historia y hacer un inventario. Su proceso tiene etapas claras: <em class="hl">reporteo</em> (salir con un "canastito" a recoger material), <em class="hl">jerarquización</em> (el momento más difícil: seleccionar el 30% que se va a usar), y <em class="hl">escritura</em>.</p>
+    <p>El concepto central de su enseñanza es el <strong>"universal"</strong>: esa frase sencilla que dice de qué va en realidad el texto. Puede ser algo tan simple como "Esta es la historia sobre un héroe caído". Ese universal debe estar claro antes de sentarse a escribir.</p>
+    <p>Trabaja mucho la voz propia: "Lo que yo trato de hacer es escuchar la voz propia de cada uno". No cree en fórmulas universales. Hay gente barroca y gente más austera y ambas pueden producir textos magníficos. Lo que no tolera son los <em class="hl">lugares comunes</em>: "Lo peor del lugar común es que la gente no se da cuenta que lo comete".</p>
+    <p>Insiste en que "sin mirada no hay reporteo, sin reporteo no hay investigación, sin investigación no hay historia, sin estilo no hay texto".</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">El taller</span><div class="section-rule"></div></div>
+    <h2>Contexto y dinámica</h2>
+    <div class="info-cards">
+      <div class="info-card"><div class="info-card-label">Período activo</div><div class="info-card-value">2004 – presente<br><small style="font-size:13px;color:var(--muted);">Buenos Aires y latinoamérica</small></div></div>
+      <div class="info-card"><div class="info-card-label">Especialidad</div><div class="info-card-value">Periodismo narrativo, crónica, perfil</div></div>
+      <div class="info-card"><div class="info-card-label">Frecuencia</div><div class="info-card-value">Lunes, 18:00 a 21:00 hs. Puntual.</div></div>
+      <div class="info-card"><div class="info-card-label">Criterio</div><div class="info-card-value">Solo periodistas en actividad con proyectos concretos. Lista de espera.</div></div>
+      <div class="info-card"><div class="info-card-label">Dinámica</div><div class="info-card-value">Consignas semanales (3000 caracteres) + análisis colectivo + un texto largo mensual</div></div>
+      <div class="info-card"><div class="info-card-label">Tamaño</div><div class="info-card-value">14-18 alumnos (considera que son demasiados)</div></div>
+    </div>
+    <p>El taller es dinámico: cada semana hay una consigna diferente. A veces la mitad edita a la otra mitad. Cada tanto proyectan fragmentos de películas o leen poemas para desarrollar "el oído". Una vez por mes, un alumno presenta un texto más largo (12 páginas) que se trabaja en detalle.</p>
+    <p style="margin-top:16px;"><span class="info-card-label" style="display:block;margin-bottom:8px;">Maestro de referencia</span>
+    <span class="alumno-tag">Homero Alsina Thevenet (editor y maestro)</span></p>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Ejercicios del taller</span><div class="section-rule"></div></div>
+    <h2>Consignas y prácticas</h2>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 01</div>
+      <div class="ejercicio-title">Las 50 preguntas sobre una birome</div>
+      <p>La consigna de apertura del taller intensivo: Guerriero levantó una birome Bic azul ante el grupo y pidió cincuenta preguntas sobre ese objeto. El ejercicio:</p>
+      <ol><li>Hacer cincuenta preguntas sobre cualquier objeto cotidiano. Todas las preguntas valen.</li>
+      <li>Al terminar, identificar cuáles son interesantes, cuáles son obvias (pero necesarias) y cuáles son las que nadie pensó.</li>
+      <li>Reflexionar: ¿qué pregunta obvia no hiciste? "¿Para qué sirve?" es la más olvidada.</li></ol>
+      <div class="ejercicio-nota">"No hay preguntas tontas, solo hay periodistas tontos. Hay que preguntar absolutamente todo. Hay una pregunta obvia que nadie hizo: ¿Para qué sirve?"</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 02</div>
+      <div class="ejercicio-title">Las consignas semanales de 3000 caracteres</div>
+      <p>Cada semana los alumnos reciben una consigna diferente y escriben un texto corto —3000 caracteres— para leer en el taller siguiente. Las consignas pueden ser:</p>
+      <ul><li>Autorreferenciales: "Escriban 3000 caracteres sobre mi lado miserable".</li>
+      <li>Sobre eventos reales y actuales: "Escriban sobre el atentado de Charlie Hebdo".</li>
+      <li>A partir de una foto: "Traigo una foto del mercado de pulgas. Escríban sobre esta foto".</li>
+      <li>A pedido del alumno: Guerriero designa a alguien para que le pida el tema de la clase siguiente.</li></ul>
+      <div class="ejercicio-nota">"Me interesa que el taller esté muy conectado a la realidad. Hay temas que convocan. Me interesa que ejerciten una mirada sobre esos temas, sobre todo en los momentos en que se habla mucho de algo, y ver cómo se las arreglan para decir algo nuevo".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 03</div>
+      <div class="ejercicio-title">Encontrar el "universal" antes de escribir</div>
+      <p>El momento previo a la escritura es clave. Guerriero enseña a sus alumnos a hacer este proceso antes de redactar:</p>
+      <ol><li>Terminar el reporteo. Reunir todo el material.</li>
+      <li>Sentarse con el material y repasarlo con un lápiz en mano: subrayar, anotar al margen, marcar diez o quince ejes narrativos.</li>
+      <li>Preguntarse: ¿Cuál es el "universal" que recorre todo el texto? (Una frase sencilla: "Esta es la historia de un héroe caído", "La tragedia sin fin".)</li>
+      <li>Solo después de identificar el universal, comenzar a escribir.</li></ol>
+      <div class="ejercicio-nota">"Los textos hablan de algo más que de la gente de la que hablan. Todo lo que no es necesario empieza a hacer un ruido muy extraño en el texto si uno no tiene claro lo que está contando".</div>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 04</div>
+      <div class="ejercicio-title">Guerriero como editora: el texto largo mensual</div>
+      <p>Una vez por mes, Guerriero designa a un alumno para presentar un texto más largo (12 páginas). El proceso:</p>
+      <ol><li>El alumno presenta el texto con anticipación para que todos lo lean antes del taller.</li>
+      <li>Ese lunes el taller entero se dedica solo a ese texto.</li>
+      <li>Primero hablan todos los alumnos. Luego Guerriero hace su devolución.</li></ol>
+      <p>La devolución de Guerriero sigue la lógica editorial: no dice cómo lo hubiera escrito ella sino qué soluciones puede encontrar el texto con su propia voz. Varias idas y vueltas. "No todos los textos necesitan que se los toque".</p>
+    </div>
+    <div class="ejercicio">
+      <div class="ejercicio-num">Ejercicio 05</div>
+      <div class="ejercicio-title">El diario de vida para desarrollar la voz propia</div>
+      <p>En uno de los años del taller, los alumnos tenían la obligación de llevar un diario de vida durante todo el año y leerlo una vez por mes en el taller. El ejercicio apuntaba a:</p>
+      <ol><li>Desarrollar la propia voz y el estilo personal.</li>
+      <li>Entender qué es lo que le puede interesar leer a alguien ajeno a la experiencia.</li>
+      <li>Plantear cómo hacer que material cotidiano sea literariamente atractivo sin dejar de ser real.</li></ol>
+      <div class="ejercicio-nota">"Un diario puede ser como contar un sueño: un plomo. Entonces les digo: ¿cómo hacés, con materia prima real, que sea interesante para el lector?"</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Referencias</span><div class="section-rule"></div></div>
+    <h2>Homero Alsina Thevenet: sugerencias para periodistas modestos</h2>
+    <p style="margin-bottom:20px;font-style:italic;color:var(--muted);">Guerriero considera a Alsina Thevenet uno de sus maestros. Las siguientes son sus sugerencias más relevantes para el taller de periodismo narrativo.</p>
+    <div class="maxima"><div class="maxima-n">01</div><div class="maxima-text">La escritura vigorosa es concisa. Una frase no debe contener palabras innecesarias, ni un párrafo frases innecesarias. Toda palabra debe importar.</div></div>
+    <div class="maxima"><div class="maxima-n">02</div><div class="maxima-text">Comience toda nota en el centro del tema. Las primeras líneas deben apresurarse a establecer Qué, Quién, Dónde, Cuándo.</div></div>
+    <div class="maxima"><div class="maxima-n">03</div><div class="maxima-text">Elimine al máximo el Yo y los verbos en primera persona. El enfoque de primera persona debe reservarse para lo que sea absolutamente intransferible.</div></div>
+    <div class="maxima"><div class="maxima-n">04</div><div class="maxima-text">Prefiera la frase positiva en lugar del doble negativo. Prefiera el dato concreto en lugar del aproximado.</div></div>
+    <div class="maxima"><div class="maxima-n">05</div><div class="maxima-text">Sea moderado con adverbios y adjetivos. No los acumule si son similares entre sí.</div></div>
+    <div class="maxima"><div class="maxima-n">06</div><div class="maxima-text">Reescriba toda vez que pueda hacerlo. Casi todos los grandes escritores lo hacen, a veces con terceras y cuartas versiones.</div></div>
+    <div class="maxima"><div class="maxima-n">07</div><div class="maxima-text">Prefiera la palabra concreta a la abstracta. El lector suele resistir el exceso de abstracción.</div></div>
+    <div class="maxima"><div class="maxima-n">08</div><div class="maxima-text">Recuerde quién es el dueño de la prosa. No es usted. Es su lector. Si no lo seduce en las primeras cuatro líneas, el lector se va. Y no vuelve.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><span class="section-tag">Máximas</span><div class="section-rule"></div></div>
+    <h2>Ideas centrales del taller de Guerriero</h2>
+    <div class="maxima"><div class="maxima-n">01</div><div class="maxima-text">Sin mirada no hay reporteo. Sin reporteo no hay investigación. Sin estilo no hay texto.</div></div>
+    <div class="maxima"><div class="maxima-n">02</div><div class="maxima-text">El periodismo narrativo es la diferencia entre contar una historia y hacer un inventario.</div></div>
+    <div class="maxima"><div class="maxima-n">03</div><div class="maxima-text">El "universal" recorre todo el texto. Identificarlo antes de escribir es la diferencia entre un texto que funciona y uno que no.</div></div>
+    <div class="maxima"><div class="maxima-n">04</div><div class="maxima-text">Un cronista trabaja con el 30% del material; el otro 70% es la base invisible que sostiene todo.</div></div>
+    <div class="maxima"><div class="maxima-n">05</div><div class="maxima-text">Un escritor es malo mientras escribe, pero debe ser bueno mientras corrige. Un buen periodista debe ser un buen editor.</div></div>
+    <div class="maxima"><div class="maxima-n">06</div><div class="maxima-text">Estar al frente de un taller es como estar al frente de una redacción. El que dirige un grupo necesita espalda y claridad de dirección.</div></div>
+    <div class="maxima"><div class="maxima-n">07</div><div class="maxima-text">No hay que ir a la realidad para confirmar un prejuicio. Hay que ir limpios de prejuicios: la realidad tiene que entrar en el envase que ella misma propone.</div></div>
+    <div class="maxima"><div class="maxima-n">08</div><div class="maxima-text">La objetividad no existe. El solo hecho de elegir un tema y no otro dice algo de vos. Hay siempre algo autobiográfico en la crónica.</div></div>
+    <div class="maxima"><div class="maxima-n">09</div><div class="maxima-text">Lo peor del lugar común es que la gente no se da cuenta que lo comete. Educar la mirada es algo más complicado que enseñar técnica.</div></div>
+    <div class="maxima"><div class="maxima-n">10</div><div class="maxima-text">Dar taller enseña mucho: la autoconciencia de que si exijo en el otro, después no puedo ser laxa conmigo misma.</div></div>
+  </div>
+  <div class="footer"><span class="footer-credit">Basado en: Maestros de la escritura · Liliana Villanueva · Ediciones Godot, 2018</span><span class="footer-credit">Ficha 08 · Leila Guerriero</span></div>
+</div>
+</div>
+
+<!-- ══════════════ SCRIPT ══════════════ -->
+<script>
+function showSection(id){
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active-nav'));
+  const el=document.getElementById(id);
+  if(el){el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+  const btn=document.querySelector(`.nav-btn[onclick="showSection('${id}')"]`);
+  if(btn)btn.classList.add('active-nav');
+}
+</script>
+</body>
+</html>
